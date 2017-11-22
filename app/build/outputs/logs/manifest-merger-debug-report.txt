@@ -1,0 +1,127 @@
+-- Merging decision tree log ---
+manifest
+ADDED from D:\android-drawing-app-master1\app\src\main\AndroidManifest.xml:2:1-32:12
+INJECTED from D:\android-drawing-app-master1\app\src\main\AndroidManifest.xml:2:1-32:12
+INJECTED from D:\android-drawing-app-master1\app\src\main\AndroidManifest.xml:2:1-32:12
+INJECTED from D:\android-drawing-app-master1\app\src\main\AndroidManifest.xml:2:1-32:12
+MERGED from [com.github.QuadFlask:colorpicker:0.0.13] C:\Users\hugob\.gradle\caches\transforms-1\files-1.1\colorpicker-0.0.13.aar\cbbb19f8b40df6c14208075adb1010df\AndroidManifest.xml:2:1-14:12
+MERGED from [com.android.support:appcompat-v7:25.1.0] C:\Users\hugob\.gradle\caches\transforms-1\files-1.1\appcompat-v7-25.1.0.aar\398d58bbb92002cf63f8a6b9d4db2fbc\AndroidManifest.xml:17:1-27:12
+MERGED from [com.android.support:animated-vector-drawable:25.1.0] C:\Users\hugob\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-25.1.0.aar\b5584398747e1d9a877138aeb01f8c6f\AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:support-vector-drawable:25.1.0] C:\Users\hugob\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-25.1.0.aar\3ca18b2a7a42d36c31f3134915be135c\AndroidManifest.xml:17:1-25:12
+MERGED from [com.android.support:support-v4:25.1.0] C:\Users\hugob\.gradle\caches\transforms-1\files-1.1\support-v4-25.1.0.aar\616c4fef7f0e3fb9a88fc629e6ee114f\AndroidManifest.xml:17:1-27:12
+MERGED from [com.android.support:support-fragment:25.1.0] C:\Users\hugob\.gradle\caches\transforms-1\files-1.1\support-fragment-25.1.0.aar\d4202b83a5afd3ef5f108f61087647c1\AndroidManifest.xml:17:1-27:12
+MERGED from [com.android.support:support-media-compat:25.1.0] C:\Users\hugob\.gradle\caches\transforms-1\files-1.1\support-media-compat-25.1.0.aar\71fe7bc06dea6adb99fba3f00ef41bd4\AndroidManifest.xml:17:1-27:12
+MERGED from [com.android.support:support-core-utils:25.1.0] C:\Users\hugob\.gradle\caches\transforms-1\files-1.1\support-core-utils-25.1.0.aar\4a994b6c1c31415f1bebe96f1f44dd96\AndroidManifest.xml:17:1-27:12
+MERGED from [com.android.support:support-core-ui:25.1.0] C:\Users\hugob\.gradle\caches\transforms-1\files-1.1\support-core-ui-25.1.0.aar\09914440c35d01424f0ac082db2d99ee\AndroidManifest.xml:17:1-27:12
+MERGED from [com.android.support:support-compat:25.1.0] C:\Users\hugob\.gradle\caches\transforms-1\files-1.1\support-compat-25.1.0.aar\63e53027c8dbb2463567d15b64bc4e17\AndroidManifest.xml:17:1-27:12
+INJECTED from D:\android-drawing-app-master1\app\src\main\AndroidManifest.xml:2:1-32:12
+INJECTED from D:\android-drawing-app-master1\app\src\main\AndroidManifest.xml:2:1-32:12
+INJECTED from D:\android-drawing-app-master1\app\src\main\AndroidManifest.xml:2:1-32:12
+	package
+		ADDED from D:\android-drawing-app-master1\app\src\main\AndroidManifest.xml:3:2-34
+		INJECTED from D:\android-drawing-app-master1\app\src\main\AndroidManifest.xml
+		INJECTED from D:\android-drawing-app-master1\app\src\main\AndroidManifest.xml
+	android:versionName
+		ADDED from D:\android-drawing-app-master1\app\src\main\AndroidManifest.xml:5:2-27
+		INJECTED from D:\android-drawing-app-master1\app\src\main\AndroidManifest.xml
+		INJECTED from D:\android-drawing-app-master1\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from D:\android-drawing-app-master1\app\src\main\AndroidManifest.xml:2:11-69
+	android:versionCode
+		ADDED from D:\android-drawing-app-master1\app\src\main\AndroidManifest.xml:4:2-25
+		INJECTED from D:\android-drawing-app-master1\app\src\main\AndroidManifest.xml
+		INJECTED from D:\android-drawing-app-master1\app\src\main\AndroidManifest.xml
+uses-sdk
+ADDED from D:\android-drawing-app-master1\app\src\main\AndroidManifest.xml:7:2-9:35
+INJECTED from D:\android-drawing-app-master1\app\src\main\AndroidManifest.xml:7:2-9:35
+INJECTED from D:\android-drawing-app-master1\app\src\main\AndroidManifest.xml:7:2-9:35
+MERGED from [com.github.QuadFlask:colorpicker:0.0.13] C:\Users\hugob\.gradle\caches\transforms-1\files-1.1\colorpicker-0.0.13.aar\cbbb19f8b40df6c14208075adb1010df\AndroidManifest.xml:8:5-10:41
+MERGED from [com.github.QuadFlask:colorpicker:0.0.13] C:\Users\hugob\.gradle\caches\transforms-1\files-1.1\colorpicker-0.0.13.aar\cbbb19f8b40df6c14208075adb1010df\AndroidManifest.xml:8:5-10:41
+MERGED from [com.android.support:appcompat-v7:25.1.0] C:\Users\hugob\.gradle\caches\transforms-1\files-1.1\appcompat-v7-25.1.0.aar\398d58bbb92002cf63f8a6b9d4db2fbc\AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:appcompat-v7:25.1.0] C:\Users\hugob\.gradle\caches\transforms-1\files-1.1\appcompat-v7-25.1.0.aar\398d58bbb92002cf63f8a6b9d4db2fbc\AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:animated-vector-drawable:25.1.0] C:\Users\hugob\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-25.1.0.aar\b5584398747e1d9a877138aeb01f8c6f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:25.1.0] C:\Users\hugob\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-25.1.0.aar\b5584398747e1d9a877138aeb01f8c6f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:25.1.0] C:\Users\hugob\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-25.1.0.aar\3ca18b2a7a42d36c31f3134915be135c\AndroidManifest.xml:21:5-43
+MERGED from [com.android.support:support-vector-drawable:25.1.0] C:\Users\hugob\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-25.1.0.aar\3ca18b2a7a42d36c31f3134915be135c\AndroidManifest.xml:21:5-43
+MERGED from [com.android.support:support-v4:25.1.0] C:\Users\hugob\.gradle\caches\transforms-1\files-1.1\support-v4-25.1.0.aar\616c4fef7f0e3fb9a88fc629e6ee114f\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-v4:25.1.0] C:\Users\hugob\.gradle\caches\transforms-1\files-1.1\support-v4-25.1.0.aar\616c4fef7f0e3fb9a88fc629e6ee114f\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-fragment:25.1.0] C:\Users\hugob\.gradle\caches\transforms-1\files-1.1\support-fragment-25.1.0.aar\d4202b83a5afd3ef5f108f61087647c1\AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-fragment:25.1.0] C:\Users\hugob\.gradle\caches\transforms-1\files-1.1\support-fragment-25.1.0.aar\d4202b83a5afd3ef5f108f61087647c1\AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-media-compat:25.1.0] C:\Users\hugob\.gradle\caches\transforms-1\files-1.1\support-media-compat-25.1.0.aar\71fe7bc06dea6adb99fba3f00ef41bd4\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-media-compat:25.1.0] C:\Users\hugob\.gradle\caches\transforms-1\files-1.1\support-media-compat-25.1.0.aar\71fe7bc06dea6adb99fba3f00ef41bd4\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-core-utils:25.1.0] C:\Users\hugob\.gradle\caches\transforms-1\files-1.1\support-core-utils-25.1.0.aar\4a994b6c1c31415f1bebe96f1f44dd96\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-core-utils:25.1.0] C:\Users\hugob\.gradle\caches\transforms-1\files-1.1\support-core-utils-25.1.0.aar\4a994b6c1c31415f1bebe96f1f44dd96\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-core-ui:25.1.0] C:\Users\hugob\.gradle\caches\transforms-1\files-1.1\support-core-ui-25.1.0.aar\09914440c35d01424f0ac082db2d99ee\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-ui:25.1.0] C:\Users\hugob\.gradle\caches\transforms-1\files-1.1\support-core-ui-25.1.0.aar\09914440c35d01424f0ac082db2d99ee\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:25.1.0] C:\Users\hugob\.gradle\caches\transforms-1\files-1.1\support-compat-25.1.0.aar\63e53027c8dbb2463567d15b64bc4e17\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:25.1.0] C:\Users\hugob\.gradle\caches\transforms-1\files-1.1\support-compat-25.1.0.aar\63e53027c8dbb2463567d15b64bc4e17\AndroidManifest.xml:21:5-23:58
+INJECTED from D:\android-drawing-app-master1\app\src\main\AndroidManifest.xml:7:2-9:35
+INJECTED from D:\android-drawing-app-master1\app\src\main\AndroidManifest.xml:7:2-9:35
+	tools:overrideLibrary
+		ADDED from [com.android.support:appcompat-v7:25.1.0] C:\Users\hugob\.gradle\caches\transforms-1\files-1.1\appcompat-v7-25.1.0.aar\398d58bbb92002cf63f8a6b9d4db2fbc\AndroidManifest.xml:23:9-75
+	android:targetSdkVersion
+		ADDED from D:\android-drawing-app-master1\app\src\main\AndroidManifest.xml:9:3-32
+		INJECTED from D:\android-drawing-app-master1\app\src\main\AndroidManifest.xml
+		INJECTED from D:\android-drawing-app-master1\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		ADDED from D:\android-drawing-app-master1\app\src\main\AndroidManifest.xml:8:3-29
+		INJECTED from D:\android-drawing-app-master1\app\src\main\AndroidManifest.xml
+		INJECTED from D:\android-drawing-app-master1\app\src\main\AndroidManifest.xml
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from D:\android-drawing-app-master1\app\src\main\AndroidManifest.xml:11:2-78
+	android:name
+		ADDED from D:\android-drawing-app-master1\app\src\main\AndroidManifest.xml:11:19-75
+uses-permission#android.permission.MANAGE_DOCUMENTS
+ADDED from D:\android-drawing-app-master1\app\src\main\AndroidManifest.xml:12:2-72
+	android:name
+		ADDED from D:\android-drawing-app-master1\app\src\main\AndroidManifest.xml:12:19-69
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from D:\android-drawing-app-master1\app\src\main\AndroidManifest.xml:13:2-77
+	android:name
+		ADDED from D:\android-drawing-app-master1\app\src\main\AndroidManifest.xml:13:19-74
+application
+ADDED from D:\android-drawing-app-master1\app\src\main\AndroidManifest.xml:15:2-30:16
+MERGED from [com.github.QuadFlask:colorpicker:0.0.13] C:\Users\hugob\.gradle\caches\transforms-1\files-1.1\colorpicker-0.0.13.aar\cbbb19f8b40df6c14208075adb1010df\AndroidManifest.xml:12:5-20
+MERGED from [com.github.QuadFlask:colorpicker:0.0.13] C:\Users\hugob\.gradle\caches\transforms-1\files-1.1\colorpicker-0.0.13.aar\cbbb19f8b40df6c14208075adb1010df\AndroidManifest.xml:12:5-20
+MERGED from [com.android.support:appcompat-v7:25.1.0] C:\Users\hugob\.gradle\caches\transforms-1\files-1.1\appcompat-v7-25.1.0.aar\398d58bbb92002cf63f8a6b9d4db2fbc\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:appcompat-v7:25.1.0] C:\Users\hugob\.gradle\caches\transforms-1\files-1.1\appcompat-v7-25.1.0.aar\398d58bbb92002cf63f8a6b9d4db2fbc\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:animated-vector-drawable:25.1.0] C:\Users\hugob\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-25.1.0.aar\b5584398747e1d9a877138aeb01f8c6f\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:animated-vector-drawable:25.1.0] C:\Users\hugob\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-25.1.0.aar\b5584398747e1d9a877138aeb01f8c6f\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-vector-drawable:25.1.0] C:\Users\hugob\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-25.1.0.aar\3ca18b2a7a42d36c31f3134915be135c\AndroidManifest.xml:23:5-20
+MERGED from [com.android.support:support-vector-drawable:25.1.0] C:\Users\hugob\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-25.1.0.aar\3ca18b2a7a42d36c31f3134915be135c\AndroidManifest.xml:23:5-20
+MERGED from [com.android.support:support-v4:25.1.0] C:\Users\hugob\.gradle\caches\transforms-1\files-1.1\support-v4-25.1.0.aar\616c4fef7f0e3fb9a88fc629e6ee114f\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-v4:25.1.0] C:\Users\hugob\.gradle\caches\transforms-1\files-1.1\support-v4-25.1.0.aar\616c4fef7f0e3fb9a88fc629e6ee114f\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-fragment:25.1.0] C:\Users\hugob\.gradle\caches\transforms-1\files-1.1\support-fragment-25.1.0.aar\d4202b83a5afd3ef5f108f61087647c1\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-fragment:25.1.0] C:\Users\hugob\.gradle\caches\transforms-1\files-1.1\support-fragment-25.1.0.aar\d4202b83a5afd3ef5f108f61087647c1\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-media-compat:25.1.0] C:\Users\hugob\.gradle\caches\transforms-1\files-1.1\support-media-compat-25.1.0.aar\71fe7bc06dea6adb99fba3f00ef41bd4\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-media-compat:25.1.0] C:\Users\hugob\.gradle\caches\transforms-1\files-1.1\support-media-compat-25.1.0.aar\71fe7bc06dea6adb99fba3f00ef41bd4\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-utils:25.1.0] C:\Users\hugob\.gradle\caches\transforms-1\files-1.1\support-core-utils-25.1.0.aar\4a994b6c1c31415f1bebe96f1f44dd96\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-utils:25.1.0] C:\Users\hugob\.gradle\caches\transforms-1\files-1.1\support-core-utils-25.1.0.aar\4a994b6c1c31415f1bebe96f1f44dd96\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-ui:25.1.0] C:\Users\hugob\.gradle\caches\transforms-1\files-1.1\support-core-ui-25.1.0.aar\09914440c35d01424f0ac082db2d99ee\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-ui:25.1.0] C:\Users\hugob\.gradle\caches\transforms-1\files-1.1\support-core-ui-25.1.0.aar\09914440c35d01424f0ac082db2d99ee\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:25.1.0] C:\Users\hugob\.gradle\caches\transforms-1\files-1.1\support-compat-25.1.0.aar\63e53027c8dbb2463567d15b64bc4e17\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:25.1.0] C:\Users\hugob\.gradle\caches\transforms-1\files-1.1\support-compat-25.1.0.aar\63e53027c8dbb2463567d15b64bc4e17\AndroidManifest.xml:25:5-20
+	android:label
+		ADDED from D:\android-drawing-app-master1\app\src\main\AndroidManifest.xml:17:3-35
+	android:allowBackup
+		ADDED from D:\android-drawing-app-master1\app\src\main\AndroidManifest.xml:16:3-29
+	android:theme
+		ADDED from D:\android-drawing-app-master1\app\src\main\AndroidManifest.xml:18:3-47
+activity#com.example.drawingfun.MainActivity
+ADDED from D:\android-drawing-app-master1\app\src\main\AndroidManifest.xml:20:3-29:14
+	android:screenOrientation
+		ADDED from D:\android-drawing-app-master1\app\src\main\AndroidManifest.xml:23:4-40
+	android:label
+		ADDED from D:\android-drawing-app-master1\app\src\main\AndroidManifest.xml:22:4-36
+	android:name
+		ADDED from D:\android-drawing-app-master1\app\src\main\AndroidManifest.xml:21:4-54
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from D:\android-drawing-app-master1\app\src\main\AndroidManifest.xml:24:4-28:20
+action#android.intent.action.MAIN
+ADDED from D:\android-drawing-app-master1\app\src\main\AndroidManifest.xml:25:5-57
+	android:name
+		ADDED from D:\android-drawing-app-master1\app\src\main\AndroidManifest.xml:25:13-54
+category#android.intent.category.LAUNCHER
+ADDED from D:\android-drawing-app-master1\app\src\main\AndroidManifest.xml:27:5-65
+	android:name
+		ADDED from D:\android-drawing-app-master1\app\src\main\AndroidManifest.xml:27:15-62
