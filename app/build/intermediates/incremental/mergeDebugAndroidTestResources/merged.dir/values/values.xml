@@ -278,6 +278,10 @@
     <dimen name="abc_text_size_subtitle_material_toolbar">16dp</dimen>
     <dimen name="abc_text_size_title_material">20sp</dimen>
     <dimen name="abc_text_size_title_material_toolbar">20dp</dimen>
+    <dimen name="action_button_content_margin">16dp</dimen>
+    <dimen name="action_button_margin">12dp</dimen>
+    <dimen name="action_button_size">72dp</dimen>
+    <dimen name="action_menu_radius">96dp</dimen>
     <dimen name="default_padding_side">24dp</dimen>
     <dimen name="default_preview_height">40dp</dimen>
     <dimen name="default_preview_image_height">36dp</dimen>
@@ -310,6 +314,8 @@
     <dimen name="notification_subtext_size">13sp</dimen>
     <dimen name="notification_top_pad">10dp</dimen>
     <dimen name="notification_top_pad_large_text">5dp</dimen>
+    <dimen name="sub_action_button_content_margin">6dp</dimen>
+    <dimen name="sub_action_button_size">36dp</dimen>
     <drawable name="notification_template_icon_bg">#3333B5E5</drawable>
     <drawable name="notification_template_icon_low_bg">#0cffffff</drawable>
     <item name="action_bar_activity_content" type="id"/>

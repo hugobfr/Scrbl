@@ -1,40 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <instant-run
-    abi="arm64-v8a,armeabi-v7a,armeabi"
-    api-level="23"
+    abi="x86"
+    api-level="26"
     build-mode="COLD"
-    density="xxhdpi"
+    density="420dpi"
     format="10"
-    ir-eligibility="COMPATIBLE"
+    ir-eligibility="FIELD_ADDED"
     plugin-version="3.0.0"
-    timestamp="1511322119032"
+    timestamp="1511337491389"
     token="-2705202854273239355"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="222" />
+        duration="235" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="25" />
+        duration="69" />
     <task
         name="verifier"
-        duration="3" />
+        duration="43" />
 
     <artifact
         location="D:\android-drawing-app-master1\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
         type="SPLIT" />
-    <artifact
-        location="D:\android-drawing-app-master1\app\build\outputs\apk\debug\app-debug.apk"
-        type="SPLIT_MAIN" />
 
     <build
         build-mode="FULL"
-        timestamp="1511321417938"
+        timestamp="1511326022366"
         verifier="FULL_BUILD_REQUESTED" >
+        <artifact
+            location="D:\android-drawing-app-master1\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
+            type="SPLIT" />
+        <artifact
+            location="D:\android-drawing-app-master1\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
+            type="SPLIT" />
         <artifact
             location="D:\android-drawing-app-master1\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
             type="SPLIT" />
@@ -48,16 +51,10 @@
             location="D:\android-drawing-app-master1\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
             type="SPLIT" />
         <artifact
-            location="D:\android-drawing-app-master1\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
-            type="SPLIT" />
-        <artifact
             location="D:\android-drawing-app-master1\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
             type="SPLIT" />
         <artifact
             location="D:\android-drawing-app-master1\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
-            type="SPLIT" />
-        <artifact
-            location="D:\android-drawing-app-master1\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
             type="SPLIT" />
         <artifact
             location="D:\android-drawing-app-master1\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
@@ -74,24 +71,36 @@
     </build>
     <build
         build-mode="COLD"
-        ir-eligibility="COMPATIBLE"
-        timestamp="1511321845129"
+        ir-eligibility="CLASS_ADDED"
+        timestamp="1511327521289"
         verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="D:\android-drawing-app-master1\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
+            type="SPLIT" />
+    </build>
+    <build
+        build-mode="COLD"
+        ir-eligibility="R_CLASS_CHANGE"
+        timestamp="1511337063832"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="D:\android-drawing-app-master1\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
+            type="SPLIT" />
+        <artifact
+            location="D:\android-drawing-app-master1\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
+            type="SPLIT" />
         <artifact
             location="D:\android-drawing-app-master1\app\build\outputs\apk\debug\app-debug.apk"
             type="SPLIT_MAIN" />
     </build>
     <build
         build-mode="COLD"
-        ir-eligibility="COMPATIBLE"
-        timestamp="1511322119032"
+        ir-eligibility="FIELD_ADDED"
+        timestamp="1511337491389"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="D:\android-drawing-app-master1\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
             type="SPLIT" />
-        <artifact
-            location="D:\android-drawing-app-master1\app\build\outputs\apk\debug\app-debug.apk"
-            type="SPLIT_MAIN" />
     </build>
 
 </instant-run>

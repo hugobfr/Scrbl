@@ -7,6 +7,10 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.ColorFilter;
+import android.graphics.LightingColorFilter;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Debug;
@@ -22,6 +26,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -32,6 +37,9 @@ import com.flask.colorpicker.ColorPickerView;
 import com.flask.colorpicker.OnColorSelectedListener;
 import com.flask.colorpicker.builder.ColorPickerClickListener;
 import com.flask.colorpicker.builder.ColorPickerDialogBuilder;
+import com.oguzdev.circularfloatingactionmenu.library.FloatingActionButton;
+import com.oguzdev.circularfloatingactionmenu.library.FloatingActionMenu;
+import com.oguzdev.circularfloatingactionmenu.library.SubActionButton;
 
 /**
  * This is demo code to accompany the Mobiletuts+ tutorial series:
@@ -46,12 +54,12 @@ public class MainActivity extends Activity implements OnClickListener {
 
 	//custom drawing view
 	private DrawingView drawView;
-	//buttons
-	private ImageButton currPaint, drawBtn, eraseBtn, newBtn, saveBtn, opacityBtn;
+
 	//sizes
 	private float smallBrush, mediumBrush, largeBrush;
 
-	public static final int PICK_IMAGE = 1;
+	private ImageView paletteIcon, colorIcon;
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -61,38 +69,168 @@ public class MainActivity extends Activity implements OnClickListener {
 		//get drawing view
 		drawView = (DrawingView)findViewById(R.id.drawing);
 
-		//get the palette and first color button
-		LinearLayout paintLayout = (LinearLayout)findViewById(R.id.paint_colors);
-		currPaint = (ImageButton)paintLayout.getChildAt(0);
-		currPaint.setImageDrawable(getResources().getDrawable(R.drawable.paint_pressed));
-
 		//sizes from dimensions
 		smallBrush = getResources().getInteger(R.integer.small_size);
 		mediumBrush = getResources().getInteger(R.integer.medium_size);
 		largeBrush = getResources().getInteger(R.integer.large_size);
 
-		//draw button
-		drawBtn = (ImageButton)findViewById(R.id.draw_btn);
-		drawBtn.setOnClickListener(this);
-
 		//set initial size
 		drawView.setBrushSize(mediumBrush);
 
-		//erase button
-		eraseBtn = (ImageButton)findViewById(R.id.erase_btn);
-		eraseBtn.setOnClickListener(this);
+		//set color filter
 
-		//new button
-		newBtn = (ImageButton)findViewById(R.id.new_btn);
-		newBtn.setOnClickListener(this);
+		// Menu
+		SubActionButton.Builder itemBuilder = new SubActionButton.Builder(this);
+
+		//region NEW-IMPORT-SAVE
+		//import photo button
+		ImageView importIcon = new ImageView(this);
+		importIcon.setImageDrawable(getDrawable(R.drawable.ic_insert_photo_white_24dp));
+		SubActionButton importButton = itemBuilder.setContentView(importIcon)
+				.setTheme(1)
+				.build();
+		importButton.setId(R.id.import_btn);
+		importButton.setOnClickListener(this);
 
 		//save button
-		saveBtn = (ImageButton)findViewById(R.id.save_btn);
-		saveBtn.setOnClickListener(this);
+		ImageView saveIcon = new ImageView(this);
+		saveIcon.setImageDrawable(getDrawable(R.drawable.ic_save_white_24dp));
+		SubActionButton saveButton= itemBuilder.setContentView(saveIcon)
+				.setTheme(1)
+				.build();
+		saveButton.setId(R.id.save_btn);
+		saveButton.setOnClickListener(this);
 
-		//opacity
-		opacityBtn = (ImageButton)findViewById(R.id.opacity_btn);
-		opacityBtn.setOnClickListener(this);
+		//new button
+		ImageView newIcon = new ImageView(this);
+		newIcon.setImageDrawable(getDrawable(R.drawable.ic_delete_sweep_white_24dp) );
+		SubActionButton newButton = itemBuilder.setContentView(newIcon)
+				.setTheme(1)
+				.build();
+		newButton.setId(R.id.new_btn);
+		newButton.setOnClickListener(this);
+		//endregion
+
+		//region LAYERS-PALETTE
+		//layers button
+		ImageView layersIcon = new ImageView(this);
+
+		layersIcon.setImageDrawable(getDrawable(R.drawable.ic_layers_white_24dp));
+		SubActionButton layersButton = itemBuilder.setContentView(layersIcon)
+				.setTheme(1)
+				.build();
+		layersButton.setId(R.id.layers_btn);
+		layersButton.setOnClickListener(this);
+
+		//palette button
+		paletteIcon = new ImageView(this);
+		paletteIcon.setImageDrawable(getDrawable(R.drawable.ic_lens_black_24dp));
+		paletteIcon.getDrawable().setColorFilter(0xff000000, PorterDuff.Mode.SRC_IN);
+		SubActionButton paletteButton = itemBuilder.setContentView(paletteIcon)
+				.setTheme(1)
+				.build();
+		paletteButton.setId(R.id.palette_btn);
+		paletteButton.setOnClickListener(this);
+
+		//endregion
+
+		//region BRUSH-ERASE-TEXT
+		//brush button
+		ImageView brushIcon = new ImageView(this);
+		brushIcon.setImageDrawable(getDrawable(R.drawable.ic_brush_white_24dp));
+		SubActionButton brushButton = itemBuilder.setContentView(brushIcon)
+				.setTheme(1)
+				.build();
+		brushButton.setId(R.id.draw_btn);
+		brushButton.setOnClickListener(this);
+
+		//eraser button
+		ImageView eraserIcon = new ImageView(this);
+		eraserIcon.setImageDrawable(getDrawable(R.drawable.eraser_variant));
+		SubActionButton eraserButton = itemBuilder.setContentView(eraserIcon)
+				.setTheme(1)
+				.build();
+		eraserButton.setId(R.id.erase_btn);
+		eraserButton.setOnClickListener(this);
+
+		//text button
+		ImageView textIcon = new ImageView(this);
+		textIcon.setImageDrawable(getDrawable(R.drawable.ic_text_fields_white_24dp));
+		SubActionButton textButton = itemBuilder.setContentView(textIcon)
+				.setTheme(1)
+				.build();
+		textButton.setId(R.id.text_btn);
+		textButton.setOnClickListener(this);
+		//endregion
+
+		//region FILE MENU
+		// Menu icon
+		ImageView fileIcon = new ImageView(this); // Create an icon
+		fileIcon.setImageDrawable(getDrawable(R.drawable.ic_insert_drive_file_white_24dp));
+
+		FloatingActionButton fileActionButton = new FloatingActionButton.Builder(this)
+				.setContentView(fileIcon)
+				.setTheme(1)
+				.setPosition(6)
+				.build();
+
+		// Custom menu
+		FloatingActionMenu fileActionMenu = new FloatingActionMenu.Builder(this)
+				.addSubActionView(newButton)
+				.addSubActionView(importButton)
+				.addSubActionView(saveButton)
+				.setStartAngle(0)
+				.setEndAngle(-90)
+				// ...
+				.attachTo(fileActionButton)
+				.build();
+		//endregion
+
+		//region COLOR MENU
+		// Menu icon
+		colorIcon = new ImageView(this); // Create an icon
+		colorIcon.setImageDrawable(getDrawable(R.drawable.ic_format_paint_white_24dp));
+
+		FloatingActionButton colorActionButton = new FloatingActionButton.Builder(this)
+				.setContentView(colorIcon)
+				.setTheme(1)
+				.setPosition(5)
+				.build();
+
+		// Custom menu
+		FloatingActionMenu colorActionMenu = new FloatingActionMenu.Builder(this)
+				.addSubActionView(paletteButton)
+				.addSubActionView(layersButton)
+				.setStartAngle(240)
+				.setEndAngle(300)
+				// ...
+				.attachTo(colorActionButton)
+				.build();
+		//endregion
+
+		//region EDIT MENU
+		// Menu icon
+		ImageView editIcon = new ImageView(this); // Create an icon
+		editIcon.setImageDrawable(getDrawable(R.drawable.ic_mode_edit_white_24dp));
+
+		FloatingActionButton editActionButton = new FloatingActionButton.Builder(this)
+				.setContentView(editIcon)
+				.setTheme(1)
+				.setPosition(4)
+				.build();
+
+		// Custom menu
+		FloatingActionMenu editActionMenu = new FloatingActionMenu.Builder(this)
+				.addSubActionView(textButton)
+				.addSubActionView(brushButton)
+				.addSubActionView(eraserButton)
+				.setStartAngle(270)
+				.setEndAngle(180)
+				// ...
+				.attachTo(editActionButton)
+				.build();
+		//endregion
+
 	}
 
 	@Override
@@ -110,7 +248,6 @@ public class MainActivity extends Activity implements OnClickListener {
 		drawView.setErase(false);
 		drawView.setPaintAlpha(100);
 		drawView.setBrushSize(drawView.getLastBrushSize());
-		final ImageButton imgView = (ImageButton)view;
 
 		ColorPickerDialogBuilder
 				.with(this)
@@ -129,7 +266,8 @@ public class MainActivity extends Activity implements OnClickListener {
 					public void onClick(DialogInterface dialog, int selectedColor, Integer[] allColors) {
 						Log.d("Color", Integer.toHexString(selectedColor));
 						drawView.setColor("#" + Integer.toHexString(selectedColor));
-						imgView.setBackgroundColor(selectedColor);
+						paletteIcon.getDrawable().setColorFilter(selectedColor, PorterDuff.Mode.SRC_IN);
+						colorIcon.getDrawable().setColorFilter(selectedColor, PorterDuff.Mode.SRC_IN);
 					}
 				})
 				.setNegativeButton("cancel", new DialogInterface.OnClickListener() {
@@ -172,7 +310,7 @@ public class MainActivity extends Activity implements OnClickListener {
 
 	@Override
 	public void onClick(View view){
-
+		//region notInteresting
 		if(view.getId()==R.id.draw_btn){
 			//draw button clicked
 			final Dialog brushDialog = new Dialog(this);
@@ -340,6 +478,17 @@ public class MainActivity extends Activity implements OnClickListener {
 			//show dialog
 			seekDialog.show();
 		}
+		//endregion
+
+		else if (view.getId() == R.id.import_btn)
+		{
+			getPicture(view);
+		}
+		else if (view.getId() == R.id.palette_btn)
+		{
+			paintClicked(view);
+		}
+
 	}
 
 }

@@ -14,4 +14,17 @@
 	<string name="med">Medium</string>
 	<string name="lrg">Large</string>
 
+	<item name="palette_btn" type="id"/>
+	<item name="save_btn" type="id"/>
+	<item name="new_btn" type="id"/>
+
+	<item name="import_btn" type="id"/>
+	<item name="layers_btn" type="id"/>
+	<item name="opacity_btn" type="id"/>
+
+	<item name="text_btn" type="id"/>
+	<item name="draw_btn" type="id"/>
+	<item name="erase_btn" type="id"/>
+
+
 </resources>

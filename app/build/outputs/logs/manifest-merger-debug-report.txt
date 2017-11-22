@@ -5,6 +5,7 @@ INJECTED from D:\android-drawing-app-master1\app\src\main\AndroidManifest.xml:2:
 INJECTED from D:\android-drawing-app-master1\app\src\main\AndroidManifest.xml:2:1-32:12
 INJECTED from D:\android-drawing-app-master1\app\src\main\AndroidManifest.xml:2:1-32:12
 MERGED from [com.github.QuadFlask:colorpicker:0.0.13] C:\Users\hugob\.gradle\caches\transforms-1\files-1.1\colorpicker-0.0.13.aar\cbbb19f8b40df6c14208075adb1010df\AndroidManifest.xml:2:1-14:12
+MERGED from [com.oguzdev:CircularFloatingActionMenu:1.0.2] C:\Users\hugob\.gradle\caches\transforms-1\files-1.1\CircularFloatingActionMenu-1.0.2.aar\06a72cbc3421012fcf05c9c9060ad97f\AndroidManifest.xml:2:1-11:12
 MERGED from [com.android.support:appcompat-v7:25.1.0] C:\Users\hugob\.gradle\caches\transforms-1\files-1.1\appcompat-v7-25.1.0.aar\398d58bbb92002cf63f8a6b9d4db2fbc\AndroidManifest.xml:17:1-27:12
 MERGED from [com.android.support:animated-vector-drawable:25.1.0] C:\Users\hugob\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-25.1.0.aar\b5584398747e1d9a877138aeb01f8c6f\AndroidManifest.xml:17:1-24:12
 MERGED from [com.android.support:support-vector-drawable:25.1.0] C:\Users\hugob\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-25.1.0.aar\3ca18b2a7a42d36c31f3134915be135c\AndroidManifest.xml:17:1-25:12
@@ -37,6 +38,8 @@ INJECTED from D:\android-drawing-app-master1\app\src\main\AndroidManifest.xml:7:
 INJECTED from D:\android-drawing-app-master1\app\src\main\AndroidManifest.xml:7:2-9:35
 MERGED from [com.github.QuadFlask:colorpicker:0.0.13] C:\Users\hugob\.gradle\caches\transforms-1\files-1.1\colorpicker-0.0.13.aar\cbbb19f8b40df6c14208075adb1010df\AndroidManifest.xml:8:5-10:41
 MERGED from [com.github.QuadFlask:colorpicker:0.0.13] C:\Users\hugob\.gradle\caches\transforms-1\files-1.1\colorpicker-0.0.13.aar\cbbb19f8b40df6c14208075adb1010df\AndroidManifest.xml:8:5-10:41
+MERGED from [com.oguzdev:CircularFloatingActionMenu:1.0.2] C:\Users\hugob\.gradle\caches\transforms-1\files-1.1\CircularFloatingActionMenu-1.0.2.aar\06a72cbc3421012fcf05c9c9060ad97f\AndroidManifest.xml:7:5-9:41
+MERGED from [com.oguzdev:CircularFloatingActionMenu:1.0.2] C:\Users\hugob\.gradle\caches\transforms-1\files-1.1\CircularFloatingActionMenu-1.0.2.aar\06a72cbc3421012fcf05c9c9060ad97f\AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:appcompat-v7:25.1.0] C:\Users\hugob\.gradle\caches\transforms-1\files-1.1\appcompat-v7-25.1.0.aar\398d58bbb92002cf63f8a6b9d4db2fbc\AndroidManifest.xml:21:5-23:78
 MERGED from [com.android.support:appcompat-v7:25.1.0] C:\Users\hugob\.gradle\caches\transforms-1\files-1.1\appcompat-v7-25.1.0.aar\398d58bbb92002cf63f8a6b9d4db2fbc\AndroidManifest.xml:21:5-23:78
 MERGED from [com.android.support:animated-vector-drawable:25.1.0] C:\Users\hugob\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-25.1.0.aar\b5584398747e1d9a877138aeb01f8c6f\AndroidManifest.xml:20:5-44

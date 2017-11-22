@@ -8,6 +8,7 @@ allprojects {
 
 dependencies {
     compile 'com.github.QuadFlask:colorpicker:0.0.13'
+    compile 'com.oguzdev:CircularFloatingActionMenu:1.0.2'
 }
 
 android {
@@ -16,7 +17,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.drawingfun"
-        minSdkVersion 14
+        minSdkVersion 21
         targetSdkVersion 17
     }
 
