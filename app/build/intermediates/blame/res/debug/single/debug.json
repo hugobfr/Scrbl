@@ -52,10 +52,6 @@
         "source": "D:\\android-drawing-app-master1\\app\\src\\main\\res\\drawable-xxxhdpi\\ic_layers_white_24dp.png"
     },
     {
-        "merged": "D:\\android-drawing-app-master1\\app\\build\\intermediates\\res\\merged\\debug\\drawable_opacity.xml.flat",
-        "source": "D:\\android-drawing-app-master1\\app\\src\\main\\res\\drawable\\opacity.xml"
-    },
-    {
         "merged": "D:\\android-drawing-app-master1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_notification_bg_normal_pressed.9.png.flat",
         "source": "C:\\Users\\hugob\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.1.0.aar\\398d58bbb92002cf63f8a6b9d4db2fbc\\res\\drawable-mdpi-v4\\notification_bg_normal_pressed.9.png"
     },
@@ -464,10 +460,6 @@
         "source": "C:\\Users\\hugob\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.1.0.aar\\398d58bbb92002cf63f8a6b9d4db2fbc\\res\\drawable\\abc_ic_go_search_api_material.xml"
     },
     {
-        "merged": "D:\\android-drawing-app-master1\\app\\build\\intermediates\\res\\merged\\debug\\drawable_brush.png.flat",
-        "source": "D:\\android-drawing-app-master1\\app\\src\\main\\res\\drawable\\brush.png"
-    },
-    {
         "merged": "D:\\android-drawing-app-master1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_delete_sweep_white_24dp.png.flat",
         "source": "D:\\android-drawing-app-master1\\app\\src\\main\\res\\drawable-hdpi\\ic_delete_sweep_white_24dp.png"
     },
@@ -564,6 +556,10 @@
         "source": "C:\\Users\\hugob\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.1.0.aar\\398d58bbb92002cf63f8a6b9d4db2fbc\\res\\drawable-xxhdpi-v4\\abc_btn_radio_to_on_mtrl_015.png"
     },
     {
+        "merged": "D:\\android-drawing-app-master1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_share_black_24dp.png.flat",
+        "source": "D:\\android-drawing-app-master1\\app\\src\\main\\res\\drawable-xxxhdpi\\ic_share_black_24dp.png"
+    },
+    {
         "merged": "D:\\android-drawing-app-master1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_btn_check_to_on_mtrl_000.png.flat",
         "source": "C:\\Users\\hugob\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.1.0.aar\\398d58bbb92002cf63f8a6b9d4db2fbc\\res\\drawable-xhdpi-v4\\abc_btn_check_to_on_mtrl_000.png"
     },
@@ -602,10 +598,6 @@
     {
         "merged": "D:\\android-drawing-app-master1\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_tint_edittext.xml.flat",
         "source": "C:\\Users\\hugob\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.1.0.aar\\398d58bbb92002cf63f8a6b9d4db2fbc\\res\\color\\abc_tint_edittext.xml"
-    },
-    {
-        "merged": "D:\\android-drawing-app-master1\\app\\build\\intermediates\\res\\merged\\debug\\drawable_new_pic.png.flat",
-        "source": "D:\\android-drawing-app-master1\\app\\src\\main\\res\\drawable\\new_pic.png"
     },
     {
         "merged": "D:\\android-drawing-app-master1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_menu_hardkey_panel_mtrl_mult.9.png.flat",
@@ -694,6 +686,10 @@
     {
         "merged": "D:\\android-drawing-app-master1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_list_selector_disabled_holo_dark.9.png.flat",
         "source": "C:\\Users\\hugob\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.1.0.aar\\398d58bbb92002cf63f8a6b9d4db2fbc\\res\\drawable-hdpi-v4\\abc_list_selector_disabled_holo_dark.9.png"
+    },
+    {
+        "merged": "D:\\android-drawing-app-master1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_share_black_24dp.png.flat",
+        "source": "D:\\android-drawing-app-master1\\app\\src\\main\\res\\drawable-xhdpi\\ic_share_black_24dp.png"
     },
     {
         "merged": "D:\\android-drawing-app-master1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_tab_indicator_mtrl_alpha.9.png.flat",
@@ -1108,12 +1104,12 @@
         "source": "C:\\Users\\hugob\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.1.0.aar\\398d58bbb92002cf63f8a6b9d4db2fbc\\res\\drawable-hdpi-v4\\abc_textfield_default_mtrl_alpha.9.png"
     },
     {
-        "merged": "D:\\android-drawing-app-master1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_list_divider_mtrl_alpha.9.png.flat",
-        "source": "C:\\Users\\hugob\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.1.0.aar\\398d58bbb92002cf63f8a6b9d4db2fbc\\res\\drawable-xxhdpi-v4\\abc_list_divider_mtrl_alpha.9.png"
+        "merged": "D:\\android-drawing-app-master1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_share_black_24dp.png.flat",
+        "source": "D:\\android-drawing-app-master1\\app\\src\\main\\res\\drawable-mdpi\\ic_share_black_24dp.png"
     },
     {
-        "merged": "D:\\android-drawing-app-master1\\app\\build\\intermediates\\res\\merged\\debug\\drawable_eraser.png.flat",
-        "source": "D:\\android-drawing-app-master1\\app\\src\\main\\res\\drawable\\eraser.png"
+        "merged": "D:\\android-drawing-app-master1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_list_divider_mtrl_alpha.9.png.flat",
+        "source": "C:\\Users\\hugob\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.1.0.aar\\398d58bbb92002cf63f8a6b9d4db2fbc\\res\\drawable-xxhdpi-v4\\abc_list_divider_mtrl_alpha.9.png"
     },
     {
         "merged": "D:\\android-drawing-app-master1\\app\\build\\intermediates\\res\\merged\\debug\\anim_abc_fade_in.xml.flat",
@@ -1342,6 +1338,10 @@
     {
         "merged": "D:\\android-drawing-app-master1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_switch_track_mtrl_alpha.9.png.flat",
         "source": "C:\\Users\\hugob\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.1.0.aar\\398d58bbb92002cf63f8a6b9d4db2fbc\\res\\drawable-mdpi-v4\\abc_switch_track_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "D:\\android-drawing-app-master1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_share_black_24dp.png.flat",
+        "source": "D:\\android-drawing-app-master1\\app\\src\\main\\res\\drawable-hdpi\\ic_share_black_24dp.png"
     },
     {
         "merged": "D:\\android-drawing-app-master1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_list_divider_mtrl_alpha.9.png.flat",
@@ -1578,10 +1578,6 @@
     {
         "merged": "D:\\android-drawing-app-master1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_scrubber_control_to_pressed_mtrl_005.png.flat",
         "source": "C:\\Users\\hugob\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.1.0.aar\\398d58bbb92002cf63f8a6b9d4db2fbc\\res\\drawable-xxhdpi-v4\\abc_scrubber_control_to_pressed_mtrl_005.png"
-    },
-    {
-        "merged": "D:\\android-drawing-app-master1\\app\\build\\intermediates\\res\\merged\\debug\\drawable_paint.xml.flat",
-        "source": "D:\\android-drawing-app-master1\\app\\src\\main\\res\\drawable\\paint.xml"
     },
     {
         "merged": "D:\\android-drawing-app-master1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_text_select_handle_right_mtrl_light.png.flat",
@@ -1952,10 +1948,6 @@
         "source": "C:\\Users\\hugob\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.1.0.aar\\398d58bbb92002cf63f8a6b9d4db2fbc\\res\\drawable-hdpi-v4\\notify_panel_notification_icon_bg.png"
     },
     {
-        "merged": "D:\\android-drawing-app-master1\\app\\build\\intermediates\\res\\merged\\debug\\drawable_paint_pressed.xml.flat",
-        "source": "D:\\android-drawing-app-master1\\app\\src\\main\\res\\drawable\\paint_pressed.xml"
-    },
-    {
         "merged": "D:\\android-drawing-app-master1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_btn_radio_to_on_mtrl_000.png.flat",
         "source": "C:\\Users\\hugob\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.1.0.aar\\398d58bbb92002cf63f8a6b9d4db2fbc\\res\\drawable-hdpi-v4\\abc_btn_radio_to_on_mtrl_000.png"
     },
@@ -2008,6 +2000,10 @@
         "source": "C:\\Users\\hugob\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.1.0.aar\\398d58bbb92002cf63f8a6b9d4db2fbc\\res\\drawable-xxxhdpi-v4\\abc_ic_menu_paste_mtrl_am_alpha.png"
     },
     {
+        "merged": "D:\\android-drawing-app-master1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_share_black_24dp.png.flat",
+        "source": "D:\\android-drawing-app-master1\\app\\src\\main\\res\\drawable-xxhdpi\\ic_share_black_24dp.png"
+    },
+    {
         "merged": "D:\\android-drawing-app-master1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_ic_star_half_black_16dp.png.flat",
         "source": "C:\\Users\\hugob\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.1.0.aar\\398d58bbb92002cf63f8a6b9d4db2fbc\\res\\drawable-xhdpi-v4\\abc_ic_star_half_black_16dp.png"
     },
@@ -2026,9 +2022,5 @@
     {
         "merged": "D:\\android-drawing-app-master1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_button_action_dark.png.flat",
         "source": "C:\\Users\\hugob\\.gradle\\caches\\transforms-1\\files-1.1\\CircularFloatingActionMenu-1.0.2.aar\\06a72cbc3421012fcf05c9c9060ad97f\\res\\drawable-hdpi-v4\\button_action_dark.png"
-    },
-    {
-        "merged": "D:\\android-drawing-app-master1\\app\\build\\intermediates\\res\\merged\\debug\\drawable_save.png.flat",
-        "source": "D:\\android-drawing-app-master1\\app\\src\\main\\res\\drawable\\save.png"
     }
 ]
