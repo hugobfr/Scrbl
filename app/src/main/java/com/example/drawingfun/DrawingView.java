@@ -213,6 +213,10 @@ public class DrawingView extends View{
 		return Math.round((float)paintAlpha/255*100);
 	}
 
+	public int getPaintColor()
+	{
+		return paintColor;
+	}
 	//set alpha
 	public void setPaintAlpha(int newAlpha){
 		paintAlpha=Math.round((float)newAlpha/100*255);

@@ -70,7 +70,7 @@ public class MainActivity extends Activity implements OnClickListener, View.OnLo
 
 	private FrameLayout frameLayout;
 	private ImageView imageView;
-	private EditText editText;
+	private EditTextBackEvent editText;
 
 	//sizes
 	private float smallBrush, mediumBrush, largeBrush;
@@ -98,16 +98,8 @@ public class MainActivity extends Activity implements OnClickListener, View.OnLo
 		drawView = (DrawingView)findViewById(R.id.drawing);
 
 		//get edit text
-		editText = (EditText) findViewById(R.id.edit_text);
-		editText.addTextChangedListener(new TextWatcher() {
-			public void onTextChanged(CharSequence s, int start, int before, int count) {
-				drawView.updateCanvas(editText); // Call the canvas update
-			}
-			public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-			}
-			public void afterTextChanged(Editable s) {
-			}
-		});
+		editText = (EditTextBackEvent) findViewById(R.id.edit_text);
+
 
 
 		drawView.requestFocus();
@@ -500,8 +492,13 @@ public class MainActivity extends Activity implements OnClickListener, View.OnLo
 		}
 		else if (view.getId() == R.id.text_btn)
 		{
+			Log.d("text_button", editText.toString());
+			editText.setVisibility(View.VISIBLE);
+			editText.setFocusable(true);
+			editText.setTextColor(drawView.getPaintColor());
+			editText.requestFocus();
 			InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-			imm.toggleSoftInput(InputMethodManager.SHOW_FORCED,InputMethodManager.HIDE_IMPLICIT_ONLY);
+			imm.showSoftInput(editText, InputMethodManager.SHOW_IMPLICIT);
 		}
 		/*
 		else if (view.getId() == R.id.file_menu_btn)
@@ -550,7 +547,8 @@ public class MainActivity extends Activity implements OnClickListener, View.OnLo
 	}
 
 	//user clicked paint
-	public void paintClicked(View view){
+	public void paintClicked(View view)
+	{
 		//use chosen color
 
 		//set erase false
@@ -587,7 +585,6 @@ public class MainActivity extends Activity implements OnClickListener, View.OnLo
 				.build()
 				.show();
 	}
-
 
 	public void getPicture(View view)
 	{

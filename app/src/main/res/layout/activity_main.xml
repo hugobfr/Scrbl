@@ -31,13 +31,17 @@
 			android:background="#FFFFFFFF"/>
 
 
-		<EditText
+		<com.example.drawingfun.EditTextBackEvent
 			android:id="@+id/edit_text"
-			android:layout_width="fill_parent"
+			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:inputType="text"
-			android:imeOptions="actionSend"
 			android:layout_gravity="center"
+			android:background="@null"
+			android:imeOptions="actionSend"
+			android:inputType="text"
+			android:text="aaa"
+			android:textCursorDrawable="@null"
+			android:textSize="55dp"
 			android:visibility="gone" />
 	</FrameLayout>
 
