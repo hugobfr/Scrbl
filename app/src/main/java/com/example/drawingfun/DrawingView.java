@@ -14,10 +14,17 @@ import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.graphics.Shader;
+import android.text.Editable;
+import android.text.InputType;
+import android.text.TextWatcher;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
+import android.widget.TextView;
 
 /**
  * This is demo code to accompany the Mobiletuts+ tutorial series:
@@ -28,7 +35,7 @@ import android.view.View;
  * August 2013 / September 2013
  *
  */
-public class DrawingView extends View {
+public class DrawingView extends View{
 
 	//drawing path
 	private Path drawPath;
@@ -44,6 +51,10 @@ public class DrawingView extends View {
 	private float brushSize, lastBrushSize;
 	//erase flag
 	private boolean erase=false;
+
+	//text flag
+	private boolean text= true;
+
 
 	public DrawingView(Context context, AttributeSet attrs){
 		super(context, attrs);
@@ -64,6 +75,7 @@ public class DrawingView extends View {
 		drawPaint.setStyle(Paint.Style.STROKE);
 		drawPaint.setStrokeJoin(Paint.Join.ROUND);
 		drawPaint.setStrokeCap(Paint.Cap.ROUND);
+		drawPaint.setTextSize(75);
 		canvasPaint = new Paint(Paint.DITHER_FLAG);
 	}
 
@@ -73,6 +85,7 @@ public class DrawingView extends View {
 		super.onSizeChanged(w, h, oldw, oldh);
 		canvasBitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
 		drawCanvas = new Canvas(canvasBitmap);
+
 	}
 
 	//draw the view - will be called after touch event
@@ -87,27 +100,46 @@ public class DrawingView extends View {
 	public boolean onTouchEvent(MotionEvent event) {
 		float touchX = event.getX();
 		float touchY = event.getY();
+
 		//respond to down, move and up events
-		switch (event.getAction()) {
-		case MotionEvent.ACTION_DOWN:
-			drawPath.moveTo(touchX, touchY);
-			break;
-		case MotionEvent.ACTION_MOVE:
-			drawPath.lineTo(touchX, touchY);
-			break;
-		case MotionEvent.ACTION_UP:
-			drawPath.lineTo(touchX, touchY);
-			drawCanvas.drawPath(drawPath, drawPaint);
-			drawPath.reset();
-			break;
-		default:
-			return false;
+		switch (event.getAction())
+		{
+			case MotionEvent.ACTION_DOWN:
+				drawPath.moveTo(touchX, touchY);
+				break;
+			case MotionEvent.ACTION_MOVE:
+				drawPath.lineTo(touchX, touchY);
+				break;
+			case MotionEvent.ACTION_UP:
+				drawPath.lineTo(touchX, touchY);
+				drawCanvas.drawPath(drawPath, drawPaint);
+				drawPath.reset();
+				break;
+			default:
+				return false;
 		}
 		//redraw
 		invalidate();
 		return true;
 
 	}
+
+
+
+	protected void updateCanvas(TextView editText)
+	{
+		Paint.Style currentStyle = drawPaint.getStyle();
+		float currentStrokeWidth = drawPaint.getStrokeWidth();
+
+		drawPaint.setStyle(Paint.Style.FILL);
+		drawPaint.setStrokeWidth(1);
+
+		drawCanvas.drawText(editText.getText().toString(), editText.getX(), editText.getY(), drawPaint);
+
+		drawPaint.setStyle(currentStyle);
+		drawPaint.setStrokeWidth(currentStrokeWidth);
+	}
+
 
 	//update color
 	public void setColor(String newColor){
@@ -166,6 +198,10 @@ public class DrawingView extends View {
 		else drawPaint.setXfermode(null);
 	}
 
+	public void setText(boolean isText)
+	{
+		text = isText;
+	}
 	//start new drawing
 	public void startNew(){
 		drawCanvas.drawColor(0, PorterDuff.Mode.CLEAR);

@@ -3,13 +3,17 @@ package com.example.drawingfun;
 import java.io.FileNotFoundException;
 import java.util.UUID;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.ColorFilter;
 import android.graphics.LightingColorFilter;
+import android.graphics.Matrix;
+import android.graphics.Paint;
 import android.graphics.PorterDuff;
+import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -20,12 +24,17 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -57,6 +66,11 @@ public class MainActivity extends Activity implements OnClickListener, View.OnLo
 
 	//custom drawing view
 	private DrawingView drawView;
+	private Uri bitmapUri;
+
+	private FrameLayout frameLayout;
+	private ImageView imageView;
+	private EditText editText;
 
 	//sizes
 	private float smallBrush, mediumBrush, largeBrush;
@@ -76,8 +90,27 @@ public class MainActivity extends Activity implements OnClickListener, View.OnLo
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
+		frameLayout = (FrameLayout) findViewById(R.id.frame_layout);
+
+		imageView = (ImageView) findViewById(R.id.photo_view);
+
 		//get drawing view
 		drawView = (DrawingView)findViewById(R.id.drawing);
+
+		//get edit text
+		editText = (EditText) findViewById(R.id.edit_text);
+		editText.addTextChangedListener(new TextWatcher() {
+			public void onTextChanged(CharSequence s, int start, int before, int count) {
+				drawView.updateCanvas(editText); // Call the canvas update
+			}
+			public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+			}
+			public void afterTextChanged(Editable s) {
+			}
+		});
+
+
+		drawView.requestFocus();
 		//sizes from dimensions
 		smallBrush = getResources().getInteger(R.integer.small_size);
 		mediumBrush = getResources().getInteger(R.integer.medium_size);
@@ -261,7 +294,6 @@ public class MainActivity extends Activity implements OnClickListener, View.OnLo
 	@Override
 	public void onClick(View view){
 		//region NOT INTERESTING
-		//Log.d("bla", "blalbla");
 		if(view.getId()==R.id.draw_btn){
 			//draw button clicked
 			final Dialog brushDialog = new Dialog(this);
@@ -466,6 +498,11 @@ public class MainActivity extends Activity implements OnClickListener, View.OnLo
 			startActivity(Intent.createChooser(intent, getResources().getText(R.string.send_to)));
 			drawView.destroyDrawingCache();
 		}
+		else if (view.getId() == R.id.text_btn)
+		{
+			InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+			imm.toggleSoftInput(InputMethodManager.SHOW_FORCED,InputMethodManager.HIDE_IMPLICIT_ONLY);
+		}
 		/*
 		else if (view.getId() == R.id.file_menu_btn)
 		{
@@ -571,12 +608,33 @@ public class MainActivity extends Activity implements OnClickListener, View.OnLo
 			try
 			{
 				bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(targetUri));
-				drawView.setPhoto(bitmap);
+				if (bitmap.getWidth() > bitmap.getHeight())
+				{
+					Matrix matrix = new Matrix();
+					matrix.postRotate(90);
+					Bitmap scaledBitmap = Bitmap.createScaledBitmap(bitmap, bitmap.getWidth(), bitmap.getHeight(),true);
+					bitmap = Bitmap.createBitmap(scaledBitmap , 0, 0, scaledBitmap .getWidth(), scaledBitmap .getHeight(), matrix, true);
+				}
+				imageView.setImageBitmap(bitmap);
+				drawView.setBackgroundColor(0x00000000);
 			} catch (FileNotFoundException e)
 			{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
+	}
+
+	@Override
+	protected void onPause()
+	{
+		super.onPause();
+	}
+
+	@Override
+	protected void onResume()
+	{
+		super.onResume();
+
 	}
 }

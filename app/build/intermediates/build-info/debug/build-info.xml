@@ -1,46 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <instant-run
-    abi="arm64-v8a,armeabi-v7a,armeabi"
-    api-level="23"
+    abi="x86"
+    api-level="26"
     build-mode="COLD"
-    density="xxhdpi"
+    density="420dpi"
     format="10"
     ir-eligibility="COMPATIBLE"
     plugin-version="3.0.0"
-    timestamp="1511349915230"
+    timestamp="1511419244001"
     token="-2705202854273239355"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="152" />
+        duration="239" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="30" />
+        duration="124" />
     <task
         name="verifier"
-        duration="24" />
+        duration="41" />
 
     <artifact
         location="D:\android-drawing-app-master1\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
         type="SPLIT" />
-    <artifact
-        location="D:\android-drawing-app-master1\app\build\outputs\apk\debug\app-debug.apk"
-        type="SPLIT_MAIN" />
 
     <build
         build-mode="FULL"
-        timestamp="1511349451705"
+        timestamp="1511351068455"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="D:\android-drawing-app-master1\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
             type="SPLIT" />
-        <artifact
-            location="D:\android-drawing-app-master1\app\build\outputs\apk\debug\app-debug.apk"
-            type="SPLIT_MAIN" />
         <artifact
             location="D:\android-drawing-app-master1\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
             type="SPLIT" />
@@ -71,11 +65,14 @@
         <artifact
             location="D:\android-drawing-app-master1\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
             type="SPLIT" />
+        <artifact
+            location="D:\android-drawing-app-master1\app\build\outputs\apk\debug\app-debug.apk"
+            type="SPLIT_MAIN" />
     </build>
     <build
         build-mode="COLD"
         ir-eligibility="R_CLASS_CHANGE"
-        timestamp="1511349699251"
+        timestamp="1511418763325"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="D:\android-drawing-app-master1\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
@@ -90,14 +87,11 @@
     <build
         build-mode="COLD"
         ir-eligibility="COMPATIBLE"
-        timestamp="1511349915230"
+        timestamp="1511419244001"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="D:\android-drawing-app-master1\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
             type="SPLIT" />
-        <artifact
-            location="D:\android-drawing-app-master1\app\build\outputs\apk\debug\app-debug.apk"
-            type="SPLIT_MAIN" />
     </build>
 
 </instant-run>

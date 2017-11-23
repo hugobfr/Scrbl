@@ -2,21 +2,44 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	android:background="#FFCCCCCC"
+	android:background="#FFFFFFFF"
 	android:orientation="vertical"
 	tools:context=".MainActivity" >
 
 	<!-- Custom View -->
 
-	<com.example.drawingfun.DrawingView
-		android:id="@+id/drawing"
-		android:layout_width="fill_parent"
-		android:layout_height="0dp"
-		android:layout_marginBottom="0dp"
-		android:layout_marginLeft="0dp"
-		android:layout_marginRight="0dp"
-		android:layout_marginTop="0dp"
-		android:layout_weight="1"
-		android:background="#FFFFFFFF" />
+	<FrameLayout
+		android:id="@+id/frame_layout"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:background="#FFFFFFFF">
+
+		<ImageView
+			android:id="@+id/photo_view"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent" />
+
+		<com.example.drawingfun.DrawingView
+			android:id="@+id/drawing"
+			android:layout_width="fill_parent"
+			android:layout_height="match_parent"
+			android:layout_marginBottom="0dp"
+			android:layout_marginLeft="0dp"
+			android:layout_marginRight="0dp"
+			android:layout_marginTop="0dp"
+			android:layout_weight="1"
+			android:background="#FFFFFFFF"/>
+
+
+		<EditText
+			android:id="@+id/edit_text"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:inputType="text"
+			android:imeOptions="actionSend"
+			android:layout_gravity="center"
+			android:visibility="gone" />
+	</FrameLayout>
+
 
 </LinearLayout>

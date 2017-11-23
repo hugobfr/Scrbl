@@ -252,12 +252,12 @@
         "source": "C:\\Users\\hugob\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.1.0.aar\\398d58bbb92002cf63f8a6b9d4db2fbc\\res\\anim\\abc_slide_out_top.xml"
     },
     {
-        "merged": "D:\\android-drawing-app-master1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ic_star_half_black_16dp.png.flat",
-        "source": "C:\\Users\\hugob\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.1.0.aar\\398d58bbb92002cf63f8a6b9d4db2fbc\\res\\drawable-mdpi-v4\\abc_ic_star_half_black_16dp.png"
-    },
-    {
         "merged": "D:\\android-drawing-app-master1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_scrubber_track_mtrl_alpha.9.png.flat",
         "source": "C:\\Users\\hugob\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.1.0.aar\\398d58bbb92002cf63f8a6b9d4db2fbc\\res\\drawable-xxhdpi-v4\\abc_scrubber_track_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "D:\\android-drawing-app-master1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ic_star_half_black_16dp.png.flat",
+        "source": "C:\\Users\\hugob\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.1.0.aar\\398d58bbb92002cf63f8a6b9d4db2fbc\\res\\drawable-mdpi-v4\\abc_ic_star_half_black_16dp.png"
     },
     {
         "merged": "D:\\android-drawing-app-master1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_scrubber_primary_mtrl_alpha.9.png.flat",
@@ -500,12 +500,12 @@
         "source": "C:\\Users\\hugob\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.1.0.aar\\398d58bbb92002cf63f8a6b9d4db2fbc\\res\\drawable\\abc_ic_voice_search_api_material.xml"
     },
     {
-        "merged": "D:\\android-drawing-app-master1\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_primary_text_disable_only_material_light.xml.flat",
-        "source": "C:\\Users\\hugob\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.1.0.aar\\398d58bbb92002cf63f8a6b9d4db2fbc\\res\\color\\abc_primary_text_disable_only_material_light.xml"
-    },
-    {
         "merged": "D:\\android-drawing-app-master1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_button_sub_action_touch.png.flat",
         "source": "C:\\Users\\hugob\\.gradle\\caches\\transforms-1\\files-1.1\\CircularFloatingActionMenu-1.0.2.aar\\06a72cbc3421012fcf05c9c9060ad97f\\res\\drawable-xxhdpi-v4\\button_sub_action_touch.png"
+    },
+    {
+        "merged": "D:\\android-drawing-app-master1\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_primary_text_disable_only_material_light.xml.flat",
+        "source": "C:\\Users\\hugob\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.1.0.aar\\398d58bbb92002cf63f8a6b9d4db2fbc\\res\\color\\abc_primary_text_disable_only_material_light.xml"
     },
     {
         "merged": "D:\\android-drawing-app-master1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_scrubber_control_to_pressed_mtrl_005.png.flat",
