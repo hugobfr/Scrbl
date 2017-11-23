@@ -99,7 +99,7 @@ public class MainActivity extends Activity implements OnClickListener, View.OnLo
 
 		//get edit text
 		editText = (EditTextBackEvent) findViewById(R.id.edit_text);
-
+		drawView.setEditText(editText);
 
 
 		drawView.requestFocus();
@@ -118,7 +118,7 @@ public class MainActivity extends Activity implements OnClickListener, View.OnLo
 		// Menu builder
 		SubActionButton.Builder itemBuilder = new SubActionButton.Builder(this);
 
-		//region NEW-IMPORT-SAVE
+		//region MENUS BUTTONS
 		//import photo button
 		ImageView importIcon = new ImageView(this);
 		importIcon.setImageDrawable(getDrawable(R.drawable.ic_insert_photo_white_24dp));
@@ -145,18 +145,16 @@ public class MainActivity extends Activity implements OnClickListener, View.OnLo
 				.build();
 		newButton.setId(R.id.new_btn);
 		newButton.setOnClickListener(this);
-		//endregion
 
-		//region LAYERS-PALETTE-SHARE
 		//layers button
-		ImageView layersIcon = new ImageView(this);
+		ImageView positionIcon = new ImageView(this);
 
-		layersIcon.setImageDrawable(getDrawable(R.drawable.ic_layers_white_24dp));
-		SubActionButton layersButton = itemBuilder.setContentView(layersIcon)
+		positionIcon.setImageDrawable(getDrawable(R.drawable.ic_gps_not_fixed_white_24dp));
+		SubActionButton positionButton = itemBuilder.setContentView(positionIcon)
 				.setTheme(1)
 				.build();
-		layersButton.setId(R.id.layers_btn);
-		layersButton.setOnClickListener(this);
+		positionButton.setId(R.id.position_btn);
+		positionButton.setOnClickListener(this);
 
 		//palette button
 		paletteIcon = new ImageView(this);
@@ -170,16 +168,13 @@ public class MainActivity extends Activity implements OnClickListener, View.OnLo
 
 		//share button
 		ImageView shareIcon = new ImageView(this);
-		shareIcon.setImageDrawable(getDrawable(R.drawable.ic_share_black_24dp));
+		shareIcon.setImageDrawable(getDrawable(R.drawable.ic_share_white_24dp));
 		SubActionButton shareButton = itemBuilder.setContentView(shareIcon)
 				.setTheme(1)
 				.build();
 		shareButton.setId(R.id.share_btn);
 		shareButton.setOnClickListener(this);
-		//shareButton.provider
-		//endregion--SHARE
 
-		//region BRUSH-ERASE-TEXT
 		//brush button
 		ImageView brushIcon = new ImageView(this);
 		brushIcon.setImageDrawable(getDrawable(R.drawable.ic_brush_white_24dp));
@@ -223,7 +218,7 @@ public class MainActivity extends Activity implements OnClickListener, View.OnLo
 		// Custom menu
 		fileActionMenu = new FloatingActionMenu.Builder(this)
 				.addSubActionView(newButton)
-				.addSubActionView(importButton)
+				.addSubActionView(shareButton)
 				.addSubActionView(saveButton)
 				.setStartAngle(0)
 				.setEndAngle(-90)
@@ -247,8 +242,8 @@ public class MainActivity extends Activity implements OnClickListener, View.OnLo
 		// Custom menu
 		colorActionMenu = new FloatingActionMenu.Builder(this)
 				.addSubActionView(paletteButton)
-				.addSubActionView(shareButton)
-				.addSubActionView(layersButton)
+				.addSubActionView(eraserButton)
+				.addSubActionView(brushButton)
 				.setStartAngle(240)
 				.setEndAngle(300)
 				// ...
@@ -271,8 +266,8 @@ public class MainActivity extends Activity implements OnClickListener, View.OnLo
 		// Custom menu
 		editActionMenu = new FloatingActionMenu.Builder(this)
 				.addSubActionView(textButton)
-				.addSubActionView(brushButton)
-				.addSubActionView(eraserButton)
+				.addSubActionView(positionButton)
+				.addSubActionView(importButton)
 				.setStartAngle(270)
 				.setEndAngle(180)
 				// ...
@@ -322,7 +317,7 @@ public class MainActivity extends Activity implements OnClickListener, View.OnLo
 					brushDialog.dismiss();
 				}
 			});
-			editActionMenu.close(true);
+			colorActionMenu.close(true);
 			//show and wait for user interaction
 			brushDialog.show();
 		}
@@ -359,7 +354,7 @@ public class MainActivity extends Activity implements OnClickListener, View.OnLo
 					brushDialog.dismiss();
 				}
 			});
-			editActionMenu.close(true);
+			colorActionMenu.close(true);
 			brushDialog.show();
 
 		}
@@ -467,7 +462,7 @@ public class MainActivity extends Activity implements OnClickListener, View.OnLo
 		else if (view.getId() == R.id.import_btn)
 		{
 			getPicture(view);
-			fileActionMenu.close(false);
+			editActionMenu.close(false);
 		}
 		else if (view.getId() == R.id.palette_btn)
 		{
@@ -496,9 +491,12 @@ public class MainActivity extends Activity implements OnClickListener, View.OnLo
 			editText.setVisibility(View.VISIBLE);
 			editText.setFocusable(true);
 			editText.setTextColor(drawView.getPaintColor());
-			editText.requestFocus();
 			InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
 			imm.showSoftInput(editText, InputMethodManager.SHOW_IMPLICIT);
+		}
+		else if (view.getId() == R.id.layers_btn)
+		{
+
 		}
 		/*
 		else if (view.getId() == R.id.file_menu_btn)

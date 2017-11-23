@@ -52,9 +52,9 @@ public class DrawingView extends View{
 	//erase flag
 	private boolean erase=false;
 
-	//text flag
-	private boolean text= true;
-
+	//text placement flag
+	private boolean textPlacement= true;
+	private EditTextBackEvent editText;
 
 	public DrawingView(Context context, AttributeSet attrs){
 		super(context, attrs);
@@ -85,7 +85,6 @@ public class DrawingView extends View{
 		super.onSizeChanged(w, h, oldw, oldh);
 		canvasBitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
 		drawCanvas = new Canvas(canvasBitmap);
-
 	}
 
 	//draw the view - will be called after touch event
@@ -101,22 +100,37 @@ public class DrawingView extends View{
 		float touchX = event.getX();
 		float touchY = event.getY();
 
-		//respond to down, move and up events
-		switch (event.getAction())
+		if (!textPlacement)
 		{
-			case MotionEvent.ACTION_DOWN:
-				drawPath.moveTo(touchX, touchY);
-				break;
-			case MotionEvent.ACTION_MOVE:
-				drawPath.lineTo(touchX, touchY);
-				break;
-			case MotionEvent.ACTION_UP:
-				drawPath.lineTo(touchX, touchY);
-				drawCanvas.drawPath(drawPath, drawPaint);
-				drawPath.reset();
-				break;
-			default:
-				return false;
+			//respond to down, move and up events
+			switch (event.getAction())
+			{
+				case MotionEvent.ACTION_DOWN:
+					drawPath.moveTo(touchX, touchY);
+					break;
+				case MotionEvent.ACTION_MOVE:
+					drawPath.lineTo(touchX, touchY);
+					break;
+				case MotionEvent.ACTION_UP:
+					drawPath.lineTo(touchX, touchY);
+					drawCanvas.drawPath(drawPath, drawPaint);
+					drawPath.reset();
+					break;
+				default:
+					return false;
+			}
+		}
+		else
+		{
+
+			editText.setX(touchX);
+			editText.setY(touchY);
+
+			if (event.getAction() == MotionEvent.ACTION_UP)
+			{
+				setTextPlacement(false);
+			}
+
 		}
 		//redraw
 		invalidate();
@@ -198,10 +212,12 @@ public class DrawingView extends View{
 		else drawPaint.setXfermode(null);
 	}
 
-	public void setText(boolean isText)
+	public void setTextPlacement(boolean isTextPlacement)
 	{
-		text = isText;
+		textPlacement = isTextPlacement;
 	}
+
+	public void setEditText(EditTextBackEvent e) { editText = e; }
 	//start new drawing
 	public void startNew(){
 		drawCanvas.drawColor(0, PorterDuff.Mode.CLEAR);
