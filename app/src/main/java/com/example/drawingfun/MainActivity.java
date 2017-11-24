@@ -225,7 +225,7 @@ public class MainActivity extends Activity implements OnClickListener
 		//region EDIT MENU
 		// Menu icon
 		ImageView editIcon = new ImageView(this); // Create an icon
-		editIcon.setImageDrawable(getDrawable(R.drawable.ic_mode_edit_white_24dp));
+		editIcon.setImageDrawable(getDrawable(R.drawable.ic_add_white_24dp));
 
 		editActionButton = new FloatingActionButton.Builder(this)
 				.setContentView(editIcon)
@@ -237,7 +237,7 @@ public class MainActivity extends Activity implements OnClickListener
 		// Custom menu
 		editActionMenu = new FloatingActionMenu.Builder(this)
 				.addSubActionView(textButton)
-				.addSubActionView(positionButton)
+				//.addSubActionView(positionButton)
 				.addSubActionView(importButton)
 				.setStartAngle(270)
 				.setEndAngle(180)
