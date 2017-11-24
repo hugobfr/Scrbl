@@ -1,6 +1,6 @@
 package com.example.drawingfun;
 
-
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -20,21 +20,13 @@ import android.text.TextWatcher;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.TypedValue;
+import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
 
-/**
- * This is demo code to accompany the Mobiletuts+ tutorial series:
- * - Android SDK: Create a Drawing App
- * - extended for follow-up tutorials on using patterns and opacity
- * 
- * Sue Smith
- * August 2013 / September 2013
- *
- */
 public class DrawingView extends View{
 
 	//drawing path
@@ -53,7 +45,7 @@ public class DrawingView extends View{
 	private boolean erase=false;
 
 	//text placement flag
-	private boolean textPlacement= true;
+	private boolean textPlacement= false;
 	private EditTextBackEvent editText;
 
 	public DrawingView(Context context, AttributeSet attrs){
@@ -77,6 +69,77 @@ public class DrawingView extends View{
 		drawPaint.setStrokeCap(Paint.Cap.ROUND);
 		drawPaint.setTextSize(75);
 		canvasPaint = new Paint(Paint.DITHER_FLAG);
+
+		setOnTouchListener(new OnTouchListener()
+		{
+			private double doublePressInterval = 200,  lastActionDown;
+			private boolean hasMoved = false;
+
+			private GestureDetector gestureDetector = new GestureDetector(getContext(), new GestureDetector.SimpleOnGestureListener() {
+				@Override
+				public boolean onDoubleTap(MotionEvent e) {
+					Log.d("TEST", "onDoubleTap");
+					MainActivity a = (MainActivity) getContext();
+					a.closeOpenMenus();
+					return true;
+				}
+   // implement here other callback methods like onFling, onScroll as necessary
+			});
+
+			@Override
+			public boolean onTouch(View view, MotionEvent event)
+			{
+				gestureDetector.onTouchEvent(event);
+
+
+				float touchX = event.getX();
+				float touchY = event.getY();
+
+				if (!textPlacement)
+				{
+					//respond to down, move and up events
+					switch (event.getAction())
+					{
+
+						case MotionEvent.ACTION_DOWN:
+							lastActionDown = System.currentTimeMillis();
+							drawPath.moveTo(touchX, touchY);
+							break;
+						case MotionEvent.ACTION_MOVE:
+							hasMoved = true;
+							drawPath.lineTo(touchX, touchY);
+							break;
+						case MotionEvent.ACTION_UP:
+							if (System.currentTimeMillis() - lastActionDown > doublePressInterval || hasMoved)
+							{
+								drawPath.lineTo(touchX, touchY);
+								drawCanvas.drawPath(drawPath, drawPaint);
+							}
+							drawPath.reset();
+							hasMoved = false;
+							break;
+						default:
+							return false;
+					}
+				}
+				else
+				{
+
+					editText.setX(touchX);
+					editText.setY(touchY);
+
+					if (event.getAction() == MotionEvent.ACTION_UP)
+					{
+						setTextPlacement(false);
+						editText.setBackgroundColor(0x00000000);
+					}
+
+				}
+				//redraw
+				invalidate();
+				return true;
+			}
+		});
 	}
 
 	//size assigned to view
@@ -94,67 +157,6 @@ public class DrawingView extends View{
 		canvas.drawPath(drawPath, drawPaint);
 	}
 
-	//register user touches as drawing action
-	@Override
-	public boolean onTouchEvent(MotionEvent event) {
-		float touchX = event.getX();
-		float touchY = event.getY();
-
-		if (!textPlacement)
-		{
-			//respond to down, move and up events
-			switch (event.getAction())
-			{
-				case MotionEvent.ACTION_DOWN:
-					drawPath.moveTo(touchX, touchY);
-					break;
-				case MotionEvent.ACTION_MOVE:
-					drawPath.lineTo(touchX, touchY);
-					break;
-				case MotionEvent.ACTION_UP:
-					drawPath.lineTo(touchX, touchY);
-					drawCanvas.drawPath(drawPath, drawPaint);
-					drawPath.reset();
-					break;
-				default:
-					return false;
-			}
-		}
-		else
-		{
-
-			editText.setX(touchX);
-			editText.setY(touchY);
-
-			if (event.getAction() == MotionEvent.ACTION_UP)
-			{
-				setTextPlacement(false);
-			}
-
-		}
-		//redraw
-		invalidate();
-		return true;
-
-	}
-
-
-
-	protected void updateCanvas(TextView editText)
-	{
-		Paint.Style currentStyle = drawPaint.getStyle();
-		float currentStrokeWidth = drawPaint.getStrokeWidth();
-
-		drawPaint.setStyle(Paint.Style.FILL);
-		drawPaint.setStrokeWidth(1);
-
-		drawCanvas.drawText(editText.getText().toString(), editText.getX(), editText.getY(), drawPaint);
-
-		drawPaint.setStyle(currentStyle);
-		drawPaint.setStrokeWidth(currentStrokeWidth);
-	}
-
-
 	//update color
 	public void setColor(String newColor){
 		invalidate();
@@ -163,29 +165,6 @@ public class DrawingView extends View{
 			paintColor = Color.parseColor(newColor);
 			drawPaint.setColor(paintColor);
 			drawPaint.setShader(null);
-		}
-	}
-
-	// set background photo
-	public void setPhoto(Bitmap photo)
-	{
-		invalidate();
-		BitmapShader patternBMPshader = new BitmapShader(photo,
-				Shader.TileMode.REPEAT, Shader.TileMode.REPEAT);
-		//color and shader
-		//drawPaint.setColor(0xFFFFFFFF);
-		//drawPaint.setShader(patternBMPshader);
-		if (photo.getWidth() < photo.getHeight())
-		{
-			drawCanvas.drawBitmap(photo, null, new Rect(0, 0, drawCanvas.getWidth(), drawCanvas.getHeight()), canvasPaint);
-		}
-		else
-		{
-			Matrix matrix = new Matrix();
-			matrix.postRotate(90);
-			Bitmap scaledBitmap = Bitmap.createScaledBitmap(photo, photo.getWidth(), photo.getHeight(),true);
-			Bitmap rotatedBitmap = Bitmap.createBitmap(scaledBitmap , 0, 0, scaledBitmap .getWidth(), scaledBitmap .getHeight(), matrix, true);
-			drawCanvas.drawBitmap(rotatedBitmap, null, new Rect(0, 0, drawCanvas.getWidth(), drawCanvas.getHeight()), canvasPaint);
 		}
 	}
 
@@ -218,6 +197,7 @@ public class DrawingView extends View{
 	}
 
 	public void setEditText(EditTextBackEvent e) { editText = e; }
+
 	//start new drawing
 	public void startNew(){
 		drawCanvas.drawColor(0, PorterDuff.Mode.CLEAR);
@@ -233,10 +213,6 @@ public class DrawingView extends View{
 	{
 		return paintColor;
 	}
-	//set alpha
-	public void setPaintAlpha(int newAlpha){
-		paintAlpha=Math.round((float)newAlpha/100*255);
-		drawPaint.setColor(paintColor);
-		drawPaint.setAlpha(paintAlpha);
-	}
+
+
 }

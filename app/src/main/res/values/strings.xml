@@ -14,7 +14,7 @@
 	<string name="med">Medium</string>
 	<string name="lrg">Large</string>
 
-	<string name="send_to">Partager</string>
+	<string name="send_to">Share</string>
 
 	<item name="file_menu_btn" type="id"/>
 	<item name="import_btn" type="id"/>

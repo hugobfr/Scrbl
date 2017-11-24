@@ -8,13 +8,8 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.graphics.ColorFilter;
-import android.graphics.LightingColorFilter;
 import android.graphics.Matrix;
-import android.graphics.Paint;
 import android.graphics.PorterDuff;
-import android.graphics.Rect;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Debug;
@@ -23,26 +18,15 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
-import android.support.v7.app.AppCompatActivity;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
-import android.view.GestureDetector;
-import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.SeekBar;
 import android.widget.ShareActionProvider;
-import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.SeekBar.OnSeekBarChangeListener;
 
 import com.flask.colorpicker.ColorPickerView;
 import com.flask.colorpicker.OnColorSelectedListener;
@@ -52,16 +36,7 @@ import com.oguzdev.circularfloatingactionmenu.library.FloatingActionButton;
 import com.oguzdev.circularfloatingactionmenu.library.FloatingActionMenu;
 import com.oguzdev.circularfloatingactionmenu.library.SubActionButton;
 
-/**
- * This is demo code to accompany the Mobiletuts+ tutorial series:
- * - Android SDK: Create a Drawing App
- * - extended for follow-up tutorials on using patterns and opacity
- * 
- * Sue Smith
- * August 2013 / September 2013
- *
- */
-public class MainActivity extends Activity implements OnClickListener, View.OnLongClickListener
+public class MainActivity extends Activity implements OnClickListener
 {
 
 	//custom drawing view
@@ -78,12 +53,8 @@ public class MainActivity extends Activity implements OnClickListener, View.OnLo
 
 	// Menu
 	private ImageView paletteIcon, colorIcon, fileIcon;
- 	private FloatingActionButton fileActionButton, colorActionButton, editActionButton, shareButton;
+ 	private FloatingActionButton fileActionButton, colorActionButton, editActionButton;
  	private FloatingActionMenu fileActionMenu, colorActionMenu, editActionMenu;
-	private boolean isDown = true;
-
-	// Share
-	private ShareActionProvider shareActionProvider;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -91,16 +62,11 @@ public class MainActivity extends Activity implements OnClickListener, View.OnLo
 		setContentView(R.layout.activity_main);
 
 		frameLayout = (FrameLayout) findViewById(R.id.frame_layout);
-
 		imageView = (ImageView) findViewById(R.id.photo_view);
-
-		//get drawing view
 		drawView = (DrawingView)findViewById(R.id.drawing);
-
-		//get edit text
 		editText = (EditTextBackEvent) findViewById(R.id.edit_text);
-		drawView.setEditText(editText);
 
+		drawView.setEditText(editText);
 
 		drawView.requestFocus();
 		//sizes from dimensions
@@ -109,7 +75,7 @@ public class MainActivity extends Activity implements OnClickListener, View.OnLo
 		largeBrush = getResources().getInteger(R.integer.large_size);
 
 		//set initial size
-		drawView.setBrushSize(mediumBrush);
+		drawView.setBrushSize(smallBrush);
 
 		//set color filter
 
@@ -213,7 +179,7 @@ public class MainActivity extends Activity implements OnClickListener, View.OnLo
 				.setTheme(1)
 				.setPosition(6)
 				.build();
-		fileActionButton.setOnLongClickListener(this);
+		//fileActionButton.setOnLongClickListener(this);
 
 		// Custom menu
 		fileActionMenu = new FloatingActionMenu.Builder(this)
@@ -222,6 +188,7 @@ public class MainActivity extends Activity implements OnClickListener, View.OnLo
 				.addSubActionView(saveButton)
 				.setStartAngle(0)
 				.setEndAngle(-90)
+				.setRadius(160)
 				// ...
 				.attachTo(fileActionButton)
 				.build();
@@ -230,25 +197,29 @@ public class MainActivity extends Activity implements OnClickListener, View.OnLo
 		//region COLOR MENU
 		// Menu icon
 		colorIcon = new ImageView(this); // Create an icon
-		colorIcon.setImageDrawable(getDrawable(R.drawable.ic_format_paint_white_24dp));
+		colorIcon.setImageDrawable(getDrawable(R.drawable.small));
 
 		colorActionButton = new FloatingActionButton.Builder(this)
 				.setContentView(colorIcon)
 				.setTheme(1)
 				.setPosition(5)
 				.build();
-		colorActionButton.setOnLongClickListener(this);
+		//colorActionButton.setId(R.id.color_menu_btn);
+		//colorActionButton.setOnLongClickListener(this);
+
 
 		// Custom menu
 		colorActionMenu = new FloatingActionMenu.Builder(this)
 				.addSubActionView(paletteButton)
 				.addSubActionView(eraserButton)
 				.addSubActionView(brushButton)
-				.setStartAngle(240)
-				.setEndAngle(300)
+				.setStartAngle(225)
+				.setEndAngle(315)
+				.setRadius(160)
 				// ...
 				.attachTo(colorActionButton)
 				.build();
+
 		//endregion
 
 		//region EDIT MENU
@@ -261,7 +232,7 @@ public class MainActivity extends Activity implements OnClickListener, View.OnLo
 				.setTheme(1)
 				.setPosition(4)
 				.build();
-		editActionButton.setOnLongClickListener(this);
+		//editActionButton.setOnLongClickListener(this);
 
 		// Custom menu
 		editActionMenu = new FloatingActionMenu.Builder(this)
@@ -270,9 +241,11 @@ public class MainActivity extends Activity implements OnClickListener, View.OnLo
 				.addSubActionView(importButton)
 				.setStartAngle(270)
 				.setEndAngle(180)
+				.setRadius(160)
 				// ...
 				.attachTo(editActionButton)
 				.build();
+
 		//endregion
 
 		//endregion
@@ -283,6 +256,7 @@ public class MainActivity extends Activity implements OnClickListener, View.OnLo
 		//region NOT INTERESTING
 		if(view.getId()==R.id.draw_btn){
 			//draw button clicked
+
 			final Dialog brushDialog = new Dialog(this);
 			brushDialog.setTitle("Brush size:");
 			brushDialog.setContentView(R.layout.brush_chooser);
@@ -294,6 +268,9 @@ public class MainActivity extends Activity implements OnClickListener, View.OnLo
 					drawView.setErase(false);
 					drawView.setBrushSize(smallBrush);
 					drawView.setLastBrushSize(smallBrush);
+					drawView.setLastBrushSize(largeBrush);
+					colorIcon.setImageDrawable(getDrawable(R.drawable.small));
+					colorIcon.getDrawable().setColorFilter(drawView.getPaintColor(), PorterDuff.Mode.SRC_IN);
 					brushDialog.dismiss();
 				}
 			});
@@ -304,6 +281,9 @@ public class MainActivity extends Activity implements OnClickListener, View.OnLo
 					drawView.setErase(false);
 					drawView.setBrushSize(mediumBrush);
 					drawView.setLastBrushSize(mediumBrush);
+					drawView.setLastBrushSize(largeBrush);
+					colorIcon.setImageDrawable(getDrawable(R.drawable.medium));
+					colorIcon.getDrawable().setColorFilter(drawView.getPaintColor(), PorterDuff.Mode.SRC_IN);
 					brushDialog.dismiss();
 				}
 			});
@@ -314,6 +294,8 @@ public class MainActivity extends Activity implements OnClickListener, View.OnLo
 					drawView.setErase(false);
 					drawView.setBrushSize(largeBrush);
 					drawView.setLastBrushSize(largeBrush);
+					colorIcon.setImageDrawable(getDrawable(R.drawable.large));
+					colorIcon.getDrawable().setColorFilter(drawView.getPaintColor(), PorterDuff.Mode.SRC_IN);
 					brushDialog.dismiss();
 				}
 			});
@@ -332,7 +314,10 @@ public class MainActivity extends Activity implements OnClickListener, View.OnLo
 				@Override
 				public void onClick(View v) {
 					drawView.setErase(true);
+					drawView.setLastBrushSize(largeBrush);
 					drawView.setBrushSize(smallBrush);
+					colorIcon.setImageDrawable(getDrawable(R.drawable.eraser_variant));
+					colorIcon.getDrawable().setColorFilter(0xFFFFFFFF, PorterDuff.Mode.SRC_IN);
 					brushDialog.dismiss();
 				}
 			});
@@ -342,6 +327,8 @@ public class MainActivity extends Activity implements OnClickListener, View.OnLo
 				public void onClick(View v) {
 					drawView.setErase(true);
 					drawView.setBrushSize(mediumBrush);
+					colorIcon.setImageDrawable(getDrawable(R.drawable.eraser_variant));
+					colorIcon.getDrawable().setColorFilter(0xFFFFFFFF, PorterDuff.Mode.SRC_IN);
 					brushDialog.dismiss();
 				}
 			});
@@ -351,6 +338,8 @@ public class MainActivity extends Activity implements OnClickListener, View.OnLo
 				public void onClick(View v) {
 					drawView.setErase(true);
 					drawView.setBrushSize(largeBrush);
+					colorIcon.setImageDrawable(getDrawable(R.drawable.eraser_variant));
+					colorIcon.getDrawable().setColorFilter(0xFFFFFFFF, PorterDuff.Mode.SRC_IN);
 					brushDialog.dismiss();
 				}
 			});
@@ -365,7 +354,10 @@ public class MainActivity extends Activity implements OnClickListener, View.OnLo
 			newDialog.setMessage("Start new drawing (you will lose the current drawing)?");
 			newDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener(){
 				public void onClick(DialogInterface dialog, int which){
+					imageView.setImageDrawable(null);
 					drawView.startNew();
+					editText.setText(null);
+
 					dialog.dismiss();
 				}
 			});
@@ -385,10 +377,10 @@ public class MainActivity extends Activity implements OnClickListener, View.OnLo
 			saveDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener(){
 				public void onClick(DialogInterface dialog, int which){
 					//save drawing
-					drawView.setDrawingCacheEnabled(true);
+					frameLayout.setDrawingCacheEnabled(true);
 					//attempt to save
 					String imgSaved = MediaStore.Images.Media.insertImage(
-							getContentResolver(), drawView.getDrawingCache(),
+							getContentResolver(), frameLayout.getDrawingCache(),
 							UUID.randomUUID().toString()+".png", "drawing");
 					//feedback
 					if(imgSaved!=null){
@@ -472,8 +464,8 @@ public class MainActivity extends Activity implements OnClickListener, View.OnLo
 		else if (view.getId() == R.id.share_btn)
 		{
 			//save drawing
-			drawView.setDrawingCacheEnabled(true);
-			Bitmap bitmap = drawView.getDrawingCache();
+			frameLayout.setDrawingCacheEnabled(true);
+			Bitmap bitmap = frameLayout.getDrawingCache();
 			String bitmapPath = MediaStore.Images.Media.insertImage(getContentResolver(),
 					 bitmap,
 					"Drawing",
@@ -483,66 +475,52 @@ public class MainActivity extends Activity implements OnClickListener, View.OnLo
 			intent.putExtra(Intent.EXTRA_STREAM, bitmapUri);
 			intent.setType("image/*");
 			startActivity(Intent.createChooser(intent, getResources().getText(R.string.send_to)));
-			drawView.destroyDrawingCache();
+			frameLayout.destroyDrawingCache();
 		}
 		else if (view.getId() == R.id.text_btn)
 		{
 			Log.d("text_button", editText.toString());
 			editText.setVisibility(View.VISIBLE);
 			editText.setFocusable(true);
+			editText.requestFocus();
 			editText.setTextColor(drawView.getPaintColor());
 			InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
 			imm.showSoftInput(editText, InputMethodManager.SHOW_IMPLICIT);
 		}
-		else if (view.getId() == R.id.layers_btn)
+		else if (view.getId() == R.id.position_btn)
 		{
-
+				drawView.setTextPlacement(true);
 		}
-		/*
+
 		else if (view.getId() == R.id.file_menu_btn)
 		{
 			if (colorActionMenu.isOpen())
-				colorActionMenu.close(true);
+				colorActionButton.performClick();
+
 			if (editActionMenu.isOpen())
-				editActionMenu.close(true);
+				editActionButton.performClick();
 		}
+
 		else if (view.getId() == R.id.color_menu_btn)
 		{
-			if (fileActionMenu.isOpen())
-				fileActionMenu.close(true);
+
+				fileActionButton.performClick();
+
 			if (editActionMenu.isOpen())
-				editActionMenu.close(true);
+				editActionButton.performClick();
 		}
+
 		else if (view.getId() == R.id.edit_menu_btn)
 		{
-			if (fileActionMenu.isOpen())
-				fileActionMenu.close(true);
 			if (colorActionMenu.isOpen())
-				colorActionMenu.close(true);
-		}*/
+				colorActionButton.performClick();
+
+			if (fileActionMenu.isOpen())
+				fileActionButton.performClick();
+		}
 	}
 
-	@Override
-	public boolean onLongClick(View view)
-	{
-		if (colorActionButton.isEnabled())
-		{
-			colorActionMenu.close(true);
-			colorActionButton.setEnabled(false);
-			colorActionButton.setVisibility(View.GONE);
-			editActionMenu.close(true);
-			editActionButton.setEnabled(false);
-			editActionButton.setVisibility(View.GONE);
-		}
-		else
-		{
-			colorActionButton.setEnabled(true);
-			colorActionButton.setVisibility(View.VISIBLE);
-			editActionButton.setEnabled(true);
-			editActionButton.setVisibility(View.VISIBLE);
-		}
-		return true;
-	}
+
 
 	//user clicked paint
 	public void paintClicked(View view)
@@ -551,7 +529,6 @@ public class MainActivity extends Activity implements OnClickListener, View.OnLo
 
 		//set erase false
 		drawView.setErase(false);
-		drawView.setPaintAlpha(100);
 		drawView.setBrushSize(drawView.getLastBrushSize());
 
 		ColorPickerDialogBuilder
@@ -572,6 +549,7 @@ public class MainActivity extends Activity implements OnClickListener, View.OnLo
 						Log.d("Color", Integer.toHexString(selectedColor));
 						drawView.setColor("#" + Integer.toHexString(selectedColor));
 						paletteIcon.getDrawable().setColorFilter(selectedColor, PorterDuff.Mode.SRC_IN);
+						colorIcon.setImageDrawable(getDrawable(R.drawable.medium));
 						colorIcon.getDrawable().setColorFilter(selectedColor, PorterDuff.Mode.SRC_IN);
 					}
 				})
@@ -583,6 +561,7 @@ public class MainActivity extends Activity implements OnClickListener, View.OnLo
 				.build()
 				.show();
 	}
+
 
 	public void getPicture(View view)
 	{
@@ -611,6 +590,8 @@ public class MainActivity extends Activity implements OnClickListener, View.OnLo
 					bitmap = Bitmap.createBitmap(scaledBitmap , 0, 0, scaledBitmap .getWidth(), scaledBitmap .getHeight(), matrix, true);
 				}
 				imageView.setImageBitmap(bitmap);
+				imageView.invalidate();
+
 				drawView.setBackgroundColor(0x00000000);
 			} catch (FileNotFoundException e)
 			{
@@ -620,16 +601,28 @@ public class MainActivity extends Activity implements OnClickListener, View.OnLo
 		}
 	}
 
-	@Override
-	protected void onPause()
+	public void closeOpenMenus()
 	{
-		super.onPause();
-	}
-
-	@Override
-	protected void onResume()
-	{
-		super.onResume();
-
+		if (colorActionButton.isEnabled())
+		{
+			colorActionMenu.close(true);
+			colorActionButton.setEnabled(false);
+			colorActionButton.setVisibility(View.GONE);
+			editActionMenu.close(true);
+			editActionButton.setEnabled(false);
+			editActionButton.setVisibility(View.GONE);
+			fileActionMenu.close(true);
+			fileActionButton.setEnabled(false);
+			fileActionButton.setVisibility(View.GONE);
+		}
+		else
+		{
+			colorActionButton.setEnabled(true);
+			colorActionButton.setVisibility(View.VISIBLE);
+			editActionButton.setEnabled(true);
+			editActionButton.setVisibility(View.VISIBLE);
+			fileActionButton.setEnabled(true);
+			fileActionButton.setVisibility(View.VISIBLE);
+		}
 	}
 }

@@ -36,14 +36,12 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_gravity="center"
-			android:background="@null"
+			android:background="#00000000"
 			android:imeOptions="actionSend"
 			android:inputType="text"
-			android:text="aaa"
-			android:textCursorDrawable="@null"
+
 			android:textSize="55dp"
 			android:visibility="gone" />
 	</FrameLayout>
-
 
 </LinearLayout>
