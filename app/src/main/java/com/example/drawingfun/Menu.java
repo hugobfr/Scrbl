@@ -70,6 +70,7 @@ public class Menu
         newButton.setOnClickListener(menuClickListener);
 
         //layers button
+        /*
         positionIcon = new ImageView(activity.getApplicationContext());
 
         positionIcon.setImageDrawable(activity.getDrawable(R.drawable.ic_gps_not_fixed_white_24dp));
@@ -78,7 +79,7 @@ public class Menu
                 .build();
         positionButton.setId(R.id.position_btn);
         positionButton.setOnClickListener(menuClickListener);
-
+*/
         //palette button
         paletteIcon = new ImageView(activity.getApplicationContext());
         paletteIcon.setImageDrawable(activity.getDrawable(R.drawable.ic_lens_black_24dp));

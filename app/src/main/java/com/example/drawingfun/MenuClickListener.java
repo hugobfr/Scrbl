@@ -52,8 +52,8 @@ public class MenuClickListener implements View.OnClickListener, View.OnLongClick
                 menu.colorActionMenu.close(true);
                 break;
 
-            case R.id.position_btn:
-                break;
+            //case R.id.position_btn:
+              //  break;
 
             case R.id.text_btn:
                 break;

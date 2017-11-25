@@ -113,14 +113,14 @@ public class MainActivity extends Activity implements OnClickListener
 		newButton.setOnClickListener(this);
 
 		//layers button
-		ImageView positionIcon = new ImageView(this);
+		ImageView cleanIcon = new ImageView(this);
 
-		positionIcon.setImageDrawable(getDrawable(R.drawable.ic_gps_not_fixed_white_24dp));
-		SubActionButton positionButton = itemBuilder.setContentView(positionIcon)
+		cleanIcon.setImageDrawable(getDrawable(R.drawable.ic_format_color_reset_white_24dp));
+		SubActionButton cleanButton = itemBuilder.setContentView(cleanIcon)
 				.setTheme(1)
 				.build();
-		positionButton.setId(R.id.position_btn);
-		positionButton.setOnClickListener(this);
+		cleanButton.setId(R.id.clean_btn);
+		cleanButton.setOnClickListener(this);
 
 		//palette button
 		paletteIcon = new ImageView(this);
@@ -237,7 +237,7 @@ public class MainActivity extends Activity implements OnClickListener
 		// Custom menu
 		editActionMenu = new FloatingActionMenu.Builder(this)
 				.addSubActionView(textButton)
-				//.addSubActionView(positionButton)
+				.addSubActionView(cleanButton)
 				.addSubActionView(importButton)
 				.setStartAngle(270)
 				.setEndAngle(180)
@@ -487,9 +487,9 @@ public class MainActivity extends Activity implements OnClickListener
 			InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
 			imm.showSoftInput(editText, InputMethodManager.SHOW_IMPLICIT);
 		}
-		else if (view.getId() == R.id.position_btn)
+		else if (view.getId() == R.id.clean_btn)
 		{
-				drawView.setTextPlacement(true);
+				drawView.startNew();
 		}
 
 		else if (view.getId() == R.id.file_menu_btn)

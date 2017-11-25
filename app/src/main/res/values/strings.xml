@@ -31,5 +31,6 @@
 	<item name="draw_btn" type="id"/>
 	<item name="erase_btn" type="id"/>
 
-	<item name="position_btn" type="id"/>
+
+	<item name="clean_btn" type="id"/>
 </resources>
