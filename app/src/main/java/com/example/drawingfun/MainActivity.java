@@ -637,6 +637,7 @@ public class MainActivity extends Activity implements OnClickListener
 			fileActionMenu.close(true);
 			fileActionButton.setEnabled(false);
 			fileActionButton.setVisibility(View.GONE);
+			takePhotoButton.setVisibility(View.GONE);
 		}
 		else
 		{
@@ -646,6 +647,7 @@ public class MainActivity extends Activity implements OnClickListener
 			editActionButton.setVisibility(View.VISIBLE);
 			fileActionButton.setEnabled(true);
 			fileActionButton.setVisibility(View.VISIBLE);
+			takePhotoButton.setVisibility(View.VISIBLE);
 		}
 	}
 }
