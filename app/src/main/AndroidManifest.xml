@@ -20,6 +20,7 @@
 		android:allowBackup="true"
 		android:label="@string/app_name"
 		android:theme="@style/Theme.AppCompat.Light"
+		android:icon="@mipmap/ic_launcher"
 		 >
 		<activity
 			android:name="com.example.drawingfun.MainActivity"
