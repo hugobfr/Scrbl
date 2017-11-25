@@ -46,7 +46,7 @@ public class MainActivity extends Activity implements OnClickListener
 	private FrameLayout frameLayout;
 	private ImageView imageView;
 	private EditTextBackEvent editText;
-
+	private ImageButton takePhotoButton;
 	//sizes
 	private float smallBrush, mediumBrush, largeBrush;
 
@@ -55,6 +55,10 @@ public class MainActivity extends Activity implements OnClickListener
 	private ImageView paletteIcon, colorIcon, fileIcon;
  	private FloatingActionButton fileActionButton, colorActionButton, editActionButton;
  	private FloatingActionMenu fileActionMenu, colorActionMenu, editActionMenu;
+
+ 	private static final int REQUEST_IMAGE_CAPTURE = 1;
+ 	private static final int REQUEST_IMAGE_FROM_GALLERY = 0;
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -77,8 +81,8 @@ public class MainActivity extends Activity implements OnClickListener
 		//set initial size
 		drawView.setBrushSize(smallBrush);
 
-		//set color filter
-
+		takePhotoButton = (ImageButton) findViewById(R.id.takephoto_btn);
+		takePhotoButton.setOnClickListener(this);
 		//region SUPER MENU
 
 		// Menu builder
@@ -492,6 +496,10 @@ public class MainActivity extends Activity implements OnClickListener
 				drawView.startNew();
 		}
 
+		else if (view.getId() == R.id.takephoto_btn)
+		{
+			dispatchTakePictureIntent();
+		}
 		else if (view.getId() == R.id.file_menu_btn)
 		{
 			if (colorActionMenu.isOpen())
@@ -567,15 +575,21 @@ public class MainActivity extends Activity implements OnClickListener
 	{
 		Intent intent = new Intent(Intent.ACTION_PICK,
 				android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-		startActivityForResult(intent, 0);
+		startActivityForResult(intent, REQUEST_IMAGE_FROM_GALLERY);
 	}
 
+	private void dispatchTakePictureIntent() {
+		Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+		if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+			startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+		}
+	}
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data)
 	{
 		super.onActivityResult(requestCode, resultCode, data);
 
-		if (resultCode == RESULT_OK)
+		if (requestCode == REQUEST_IMAGE_FROM_GALLERY &&  resultCode == RESULT_OK)
 		{
 			Uri targetUri = data.getData();
 			Bitmap bitmap;
@@ -599,6 +613,15 @@ public class MainActivity extends Activity implements OnClickListener
 				e.printStackTrace();
 			}
 		}
+		else if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK)
+		{
+			Bundle extras = data.getExtras();
+			Bitmap imageBitmap = (Bitmap) extras.get("data");
+			imageView.setImageBitmap(imageBitmap);
+			imageView.invalidate();
+			drawView.setBackgroundColor(0x00000000);
+		}
+
 	}
 
 	public void closeOpenMenus()

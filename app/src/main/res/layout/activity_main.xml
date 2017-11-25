@@ -42,6 +42,13 @@
 
 			android:textSize="55dp"
 			android:visibility="gone" />
+
+		<ImageButton
+			android:id="@+id/takephoto_btn"
+			android:layout_width="@dimen/action_button_size"
+			android:layout_height="@dimen/action_button_size"
+			android:background="@drawable/button_sub_action_dark_selector"
+			android:src="@drawable/ic_photo_camera_white_24dp" />
 	</FrameLayout>
 
 </LinearLayout>
